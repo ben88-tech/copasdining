@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copas Suburban Dining · Asian Fusion di Gading Serpong</title>
+<meta name="description" content="Copas Suburban Dining, Asian fusion restaurant di Gading Serpong, Tangerang. Reservasi table & VIP room online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6ede0;--card:#fffaf1;--brown:#3e2616;--text:#4a3426;--accent:#a8481f;--accent2:#8a3a18;--gold:#c9973f;--line:#e3d3bd;--err:#b3261e}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:Lato,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+h1,h2,h3,.brand{font-family:"Playfair Display",Georgia,serif;color:var(--brown)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+.title{text-align:center;margin-bottom:32px}
+.title h2{font-size:2rem}
+.title p{opacity:.8}
+.hide{display:none!important}
+nav{position:sticky;top:0;z-index:50;background:rgba(62,38,22,.97)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.brand{color:#f6e3c3;font-size:1.15rem;font-weight:700;text-decoration:none}
+.links{display:flex;flex-wrap:wrap;gap:2px}
+.links a{color:#f1dcc0;text-decoration:none;padding:0 10px;font-size:.9rem;min-height:44px;display:flex;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:#fff;font:700 1rem Lato,sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn.alt{background:transparent;color:var(--accent)}
+.btn.alt:hover{background:var(--accent);color:#fff}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#2b1a0e}
+.hero{background:radial-gradient(circle at 20% 15%,#7d4c2c,transparent 55%),radial-gradient(circle at 85% 90%,#a8481f55,transparent 50%),linear-gradient(135deg,#3e2616,#5e3419);color:#fff;text-align:center;padding:96px 0 84px}
+.hero h1{color:#fff;font-size:clamp(2.2rem,7vw,3.8rem);line-height:1.15;margin:14px 0 10px}
+.hero p{max-width:560px;margin:0 auto 26px;color:#f1dcc0;font-size:1.1rem}
+.badge{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:700;background:#fff2;color:#fff}
+.badge.on{background:#2e6b3a;color:#fff}
+.badge.off{background:#7a2a20;color:#fff}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .ico{font-size:2.2rem}
+.card h3{margin:8px 0 4px}
+.menu .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.price{color:var(--accent);font-weight:700;white-space:nowrap}
+.form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;max-width:640px;margin:0 auto}
+.f{margin-bottom:16px}
+label,.lbl{display:block;font-weight:700;margin-bottom:6px;font-size:.95rem}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;min-height:44px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--text)}
+.bad{border-color:var(--err)!important}
+.err{color:var(--err);font-size:.85rem;min-height:1.1em;margin-top:4px}
+.opts{display:grid;gap:8px}
+.opts label{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-weight:400;cursor:pointer;margin:0}
+.opts input{width:20px;height:20px;accent-color:var(--accent)}
+.opts label:has(input:checked){border-color:var(--accent);background:#fbeee3}
+.step{display:flex;align-items:center;gap:14px}
+.step button{width:44px;height:44px;border-radius:50%;border:2px solid var(--accent);background:#fff;color:var(--accent);font-size:1.4rem;cursor:pointer}
+.step button:disabled{opacity:.35;cursor:not-allowed}
+.step output{min-width:36px;text-align:center;font-weight:700;font-size:1.3rem}
+.hint{font-size:.85rem;opacity:.85;margin-top:6px}
+.sum dl{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;margin:14px 0 20px}
+.sum dt{font-weight:700}
+.sum dd{word-break:break-word}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.ok{text-align:center}
+.ok .code{font-family:"Playfair Display",Georgia,serif;font-size:2.4rem;color:var(--accent);margin:8px 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
+td{padding:11px 14px;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;font-weight:700}
+.two{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+ul.rules{padding-left:20px}
+ul.rules li{margin-bottom:6px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+summary{cursor:pointer;min-height:44px;padding:10px 16px;font-weight:700;display:flex;align-items:center}
+details p{padding:0 16px 14px}
+footer{background:var(--brown);color:#f1dcc0;text-align:center;padding:48px 0 90px}
+footer h2{color:#f6e3c3;margin-bottom:8px}
+footer a{color:#f6e3c3}
+.soc{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.soc a{min-height:44px;display:inline-flex;align-items:center}
+.fab{position:fixed;right:16px;bottom:16px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:1.7rem;text-decoration:none;box-shadow:0 4px 14px #0004}
+.alt-bg{background:#efe1cc}
+</style>
+</head>
+<body>
+<nav>
+ <div class="wrap">
+  <a class="brand" href="#top">Copas Suburban</a>
+  <div class="links">
+   <a href="#keunggulan">Keunggulan</a><a href="#menu">Menu</a><a href="#info">Info</a><a href="#faq">FAQ</a>
+  </div>
+  <a class="btn" href="#reservasi">Reservasi Sekarang</a>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <span id="status" class="badge">Memeriksa jam buka…</span>
+  <h1>Copas Suburban Dining</h1>
+  <p>Asian Fusion, Served Warm &amp; Cozy.<br>Nikmati hidangan Asian fusion di Gading Serpong, Tangerang.</p>
+  <a class="btn gold" href="#reservasi">Reservasi Sekarang</a>
+ </div>
+</header>
+
+<section id="keunggulan">
+ <div class="wrap">
+  <div class="title"><h2>Kenapa Copas?</h2><p>Why you'll love dining with us</p></div>
+  <div class="grid">
+   <div class="card"><div class="ico">🕯️</div><h3>Ambience</h3><p>Suasana hangat dan nyaman, cocok untuk makan bersama keluarga &amp; teman. A cozy place to gather.</p></div>
+   <div class="card"><div class="ico">🍜</div><h3>Food</h3><p>Hidangan Asian fusion dengan cita rasa yang kaya, dari Balinese hingga Minang. Bold flavors, made to share.</p></div>
+   <div class="card"><div class="ico">🥂</div><h3>VIP Room</h3><p>Dua VIP room untuk 6–14 tamu, pas untuk acara spesial dan private gathering.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="menu" class="alt-bg">
+ <div class="wrap">
+  <div class="title"><h2>Menu Unggulan</h2><p>Signature dishes kami</p></div>
+  <div class="grid menu">
+   <div class="card"><div class="ico">🦆</div><div class="top"><h3>Balinese Deep Fried Duck</h3><span class="price">Rp 110K</span></div><p>Single portion roasted marinated spice duck served with sambal matah, sambal bawang and nasi daun jeruk.</p></div>
+   <div class="card"><div class="ico">🍖</div><div class="top"><h3>Iga Bakar Minang</h3><span class="price">Rp 120K</span></div><p>Aromatic and flavorful marinated ribs with Minang sauce.</p></div>
+   <div class="card"><div class="ico">🦑</div><div class="top"><h3>Crispy Cereal Squid / Prawns</h3><span class="price">80K / 95K</span></div><p>Crispy cereal squid / prawns, a perfect blend of sweet and savory.</p></div>
+   <div class="card"><div class="ico">🥩</div><div class="top"><h3>Black Pepper Beef</h3><span class="price">Rp 130K</span></div><p>Tender beef stir fried with black pepper sauce and onions.</p></div>
+   <div class="card"><div class="ico">🍝</div><div class="top"><h3>Creamy Mushroom Pasta Chicken / Dory</h3><span class="price">Rp 80K</span></div><p>Creamy mushroom based pasta sauce, served with crispy dory / chicken.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="reservasi">
+ <div class="wrap">
+  <div class="title"><h2>Reservasi Meja</h2><p>Book your table, minimal H-1. Ketersediaan dikonfirmasi tim kami via WhatsApp.</p></div>
+
+  <form id="form" class="form" novalidate>
+   <div class="f"><label for="name">Nama / Name</label><input type="text" id="name" autocomplete="name" placeholder="Nama lengkap"><div class="err" id="e-name"></div></div>
+   <div class="f"><label for="phone">Nomor WhatsApp</label><input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="0812-3456-7890"><div class="err" id="e-phone"></div></div>
+   <div class="f"><span class="lbl">Pilih Table / Choose Seating</span>
+    <div class="opts">
+     <label><input type="radio" name="type" value="reg" checked> Table Reguler · 5 pax/table · DP Rp 250.000/table</label>
+     <label><input type="radio" name="type" value="vip1"> VIP Room 1 · 6–10 pax · DP Rp 500.000</label>
+     <label><input type="radio" name="type" value="vip2"> VIP Room 2 · 10–14 pax · DP Rp 500.000</label>
+    </div>
+   </div>
+   <div class="f"><label for="date">Tanggal / Date</label><input type="date" id="date"><div class="err" id="e-date"></div></div>
+   <div class="f"><label for="time">Jam Kedatangan / Arrival Time</label><select id="time" disabled><option value="">Pilih tanggal dulu</option></select><div class="err" id="e-time"></div><div class="hint">Pemakaian table maksimal 3 jam.</div></div>
+   <div class="f"><span class="lbl">Jumlah Tamu / Guests</span>
+    <div class="step"><button type="button" id="minus" aria-label="Kurangi tamu">−</button><output id="gv" aria-live="polite">2</output><button type="button" id="plus" aria-label="Tambah tamu">+</button></div>
+    <div class="hint" id="hint"></div>
+    <div class="hint">Grup lebih dari 25 pax? Hubungi kami via WhatsApp.</div>
+   </div>
+   <div class="f"><label for="note">Catatan Khusus (opsional)</label><textarea id="note" rows="3" placeholder="Contoh: ulang tahun, kursi bayi, area non-smoking"></textarea></div>
+   <button class="btn" type="submit" style="width:100%">Lihat Ringkasan Reservasi</button>
+  </form>
+
+  <div id="summary" class="form sum hide">
+   <h3>Ringkasan Reservasi</h3>
+   <dl id="sumlist"></dl>
+   <p class="hint" style="margin-bottom:16px">DP bersifat <b>NO REFUND</b>. Tim kami akan membalas via WhatsApp untuk konfirmasi jadwal &amp; info pembayaran DP.</p>
+   <div class="row"><button class="btn" id="send" type="button">Konfirmasi &amp; Kirim</button><button class="btn alt" id="edit" type="button">Ubah Data</button></div>
+  </div>
+
+  <div id="success" class="form ok hide">
+   <div style="font-size:3rem">🎉</div>
+   <h3>Reservasi Terkirim!</h3>
+   <p>Kode reservasi Anda:</p>
+   <div class="code" id="code"></div>
+   <p>Selesaikan pengiriman pesan di WhatsApp. Jika WhatsApp tidak terbuka, <a id="walink" href="#" target="_blank" rel="noopener">klik di sini</a>.</p>
+   <p class="hint" style="margin:10px 0 18px">Reservasi dianggap pasti setelah dikonfirmasi tim kami dan DP diterima.</p>
+   <button class="btn" id="again" type="button">Buat Reservasi Baru</button>
+  </div>
+ </div>
+</section>
+
+<section id="info" class="alt-bg">
+ <div class="wrap">
+  <div class="title"><h2>Info &amp; Lokasi</h2></div>
+  <div class="two">
+   <div>
+    <h3>📍 Alamat</h3>
+    <p style="margin:6px 0 14px">Gading Serpong, Tangerang</p>
+    <a class="btn" href="https://maps.app.goo.gl/GofQzFk4g9QtpCxeA" target="_blank" rel="noopener">Buka di Google Maps</a>
+    <h3 style="margin-top:26px">🕗 Jam Buka</h3>
+    <table style="margin-top:8px"><tr><td>Minggu – Kamis</td><td>08:00 – 22:00</td></tr><tr><td>Jumat – Sabtu</td><td>08:00 – 23:00</td></tr></table>
+   </div>
+   <div>
+    <h3>📋 Aturan Reservasi</h3>
+    <ul class="rules" style="margin-top:8px">
+     <li>Reservasi minimal <b>H-1</b>.</li>
+     <li>Reservasi per table, pemakaian maksimal <b>3 jam</b>.</li>
+     <li>Table reguler: 5 pax/table, DP <b>Rp 250.000</b>/table.</li>
+     <li>VIP Room 1 (6–10 pax) &amp; VIP Room 2 (10–14 pax): DP <b>Rp 500.000</b>/VIP.</li>
+     <li>DP berlaku sistem <b>NO REFUND</b>.</li>
+     <li>Kapasitas: Lantai 1 maks. 25 pax, Lantai 2 sekitar 60–80 pax.</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap" style="max-width:720px">
+  <div class="title"><h2>FAQ</h2></div>
+  <details><summary>Berapa DP yang harus dibayar?</summary><p>Table reguler Rp 250.000 per table, VIP room Rp 500.000 per VIP. Pemakaian maksimal 3 jam.</p></details>
+  <details><summary>Apakah DP bisa di-refund?</summary><p>Tidak. Reservasi menggunakan sistem DP dan NO REFUND.</p></details>
+  <details><summary>Kapan paling lambat reservasi?</summary><p>Minimal H-1, jadi paling cepat untuk besok hari.</p></details>
+  <details><summary>Bagaimana jika grup saya lebih dari 25 orang?</summary><p>Silakan hubungi kami langsung via WhatsApp agar kami bantu atur susunan table.</p></details>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <h2>Siap makan bersama kami?</h2>
+  <p>Reserve your table today.</p>
+  <div style="margin-top:16px"><a class="btn gold" href="https://wa.me/6285195895678" target="_blank" rel="noopener">Chat via WhatsApp</a></div>
+  <div class="soc"><a href="https://wa.me/6285195895678" target="_blank" rel="noopener">WhatsApp: +62 851-9589-5678</a><a href="https://maps.app.goo.gl/GofQzFk4g9QtpCxeA" target="_blank" rel="noopener">Google Maps</a></div>
+  <p>© <span id="yr"></span> Copas Suburban Dining. All rights reserved.</p>
+  <p style="font-size:.85rem;opacity:.8;margin-top:6px">Built with AI · AI Builder Bootcamp Showcase</p>
+ </div>
+</footer>
+<a class="fab" href="https://wa.me/6285195895678" target="_blank" rel="noopener" aria-label="Chat WhatsApp">💬</a>
+
+<script>
+const WA='6285195895678',$=id=>document.getElementById(id);
+const TYPES={reg:{label:'Table Reguler',min:1,max:25},vip1:{label:'VIP Room 1',min:6,max:10},vip2:{label:'VIP Room 2',min:10,max:14}};
+const rp=n=>'Rp '+n.toLocaleString('id-ID'),pad=n=>String(n).padStart(2,'0');
+const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parse=v=>{const [y,m,d]=v.split('-').map(Number);return new Date(y,m-1,d)};
+const closeHour=day=>(day===5||day===6)?23:22;
+const type=()=>document.querySelector('input[name=type]:checked').value;
+let guests=2,data={},waUrl='';
+const calcDp=()=>type()==='reg'?Math.ceil(guests/5)*250000:500000;
+
+function status(){
+ const n=new Date(),h=n.getHours()+n.getMinutes()/60,c=closeHour(n.getDay()),open=h>=8&&h<c,b=$('status');
+ b.className='badge '+(open?'on':'off');
+ b.textContent=open?`● Buka sekarang · Open until ${c}:00`:'● Tutup · Opens daily at 08:00';
+}
+function slots(){
+ const v=$('date').value,s=$('time');
+ if(!v){s.innerHTML='<option value="">Pilih tanggal dulu</option>';s.disabled=true;return}
+ const last=closeHour(parse(v).getDay())-3;
+ let o='<option value="">Pilih jam / Select time</option>';
+ for(let m=480;m<=last*60;m+=30){const t=`${pad(Math.floor(m/60))}:${pad(m%60)}`;o+=`<option value="${t}">${t}</option>`}
+ s.innerHTML=o;s.disabled=false;
+}
+function syncGuests(){
+ const t=TYPES[type()];
+ guests=Math.min(t.max,Math.max(t.min,guests));
+ $('gv').textContent=guests;
+ $('minus').disabled=guests<=t.min;$('plus').disabled=guests>=t.max;
+ $('hint').textContent=type()==='reg'
+  ?`${Math.ceil(guests/5)} table · DP ${rp(calcDp())} (max 3 jam)`
+  :`Kapasitas ${t.min}–${t.max} pax · DP ${rp(calcDp())} (max 3 jam)`;
+}
+function validate(){
+ const e={};
+ const name=$('name').value.trim();
+ if(name.length<2)e.name='Nama wajib diisi ya / Please enter your name.';
+ let p=$('phone').value.replace(/[\s\-().]/g,'');
+ if(p.startsWith('+'))p=p.slice(1);
+ if(p.startsWith('0'))p='62'+p.slice(1);
+ if(!/^628\d{8,11}$/.test(p))e.phone='Nomor WhatsApp belum valid. Contoh: 0812-3456-7890.';
+ const dv=$('date').value;
+ if(!dv)e.date='Pilih tanggal reservasi ya.';
+ else{const t=new Date();t.setHours(0,0,0,0);t.setDate(t.getDate()+1);
+  if(parse(dv)<t)e.date='Reservasi minimal H-1 (paling cepat besok).'}
+ if(!$('time').value)e.time='Pilih jam kedatangan.';
+ ['name','phone','date','time'].forEach(k=>{$('e-'+k).textContent=e[k]||'';$(k).classList.toggle('bad',!!e[k])});
+ const first=Object.keys(e)[0];
+ if(first)$(first).focus();
+ return {ok:!first,name,phone:p};
+}
+function show(id){['form','summary','success'].forEach(x=>$(x).classList.toggle('hide',x!==id));$('reservasi').scrollIntoView()}
+
+$('minus').onclick=()=>{guests--;syncGuests()};
+$('plus').onclick=()=>{guests++;syncGuests()};
+document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=syncGuests);
+$('date').onchange=slots;
+
+$('form').addEventListener('submit',ev=>{
+ ev.preventDefault();
+ const v=validate();if(!v.ok)return;
+ const [h,m]=$('time').value.split(':').map(Number);
+ data={name:v.name,phone:v.phone,
+  date:parse($('date').value).toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),
+  time:$('time').value,end:`${pad(h+3)}:${pad(m)}`,type:TYPES[type()].label,guests,
+  tables:type()==='reg'?Math.ceil(guests/5):1,dp:calcDp(),note:$('note').value.trim()};
+ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const rows=[['Nama',data.name],['WhatsApp','+'+data.phone],['Seating',data.type+(type()==='reg'?` (${data.tables} table)`:'')],
+  ['Tanggal',data.date],['Jam',`${data.time} – ${data.end} (max 3 jam)`],['Tamu',data.guests+' pax'],
+  ['Total DP',rp(data.dp)+' (NO REFUND)'],['Catatan',data.note||'-']];
+ $('sumlist').innerHTML=rows.map(r=>`<dt>${r[0]}</dt><dd>${esc(String(r[1]))}</dd>`).join('');
+ show('summary');
+});
+$('edit').onclick=()=>show('form');
+$('send').onclick=()=>{
+ const code='RSV-'+Math.floor(1000+Math.random()*9000);
+ const msg=['Halo Copas Suburban Dining, saya ingin reservasi:','',`Kode: ${code}`,`Nama: ${data.name}`,`WhatsApp: +${data.phone}`,
+  `Seating: ${data.type}${type()==='reg'?' ('+data.tables+' table)':''}`,`Tanggal: ${data.date}`,`Jam: ${data.time} - ${data.end} (max 3 jam)`,
+  `Jumlah tamu: ${data.guests} pax`,`Total DP: ${rp(data.dp)} (NO REFUND)`,`Catatan: ${data.note||'-'}`,'','Mohon konfirmasi ketersediaan & info pembayaran DP. Terima kasih!'].join('\n');
+ waUrl=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+ $('code').textContent=code;$('walink').href=waUrl;
+ window.open(waUrl,'_blank');
+ show('success');
+};
+$('again').onclick=()=>{
+ $('form').reset();guests=2;
+ ['name','phone','date','time'].forEach(k=>{$('e-'+k).textContent='';$(k).classList.remove('bad')});
+ slots();syncGuests();show('form');
+};
+
+const tm=new Date();tm.setDate(tm.getDate()+1);
+$('date').min=iso(tm);
+$('yr').textContent=new Date().getFullYear();
+status();setInterval(status,60000);syncGuests();
+</script>
+</body>
+</html>
