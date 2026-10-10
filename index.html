@@ -79,6 +79,14 @@ footer a{color:#f6e3c3}
 .soc a{min-height:44px;display:inline-flex;align-items:center}
 .fab{position:fixed;right:16px;bottom:16px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:1.7rem;text-decoration:none;box-shadow:0 4px 14px #0004}
 .alt-bg{background:#efe1cc}
+.rv-stats{text-align:center;margin:-8px 0 26px;font-size:1.05rem}
+.rv-stats b{color:var(--accent);font-size:1.3rem}
+.rv .stars{color:var(--gold);letter-spacing:2px;font-size:1.1rem}
+.rv blockquote{margin:10px 0 14px;font-style:italic}
+.rv .who{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.9rem;flex-wrap:wrap}
+.rv .who b{color:var(--brown)}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;background:#fbeee3;border:1px solid var(--line);font-size:.78rem;text-transform:capitalize}
+.rv-more{text-align:center;margin-top:26px}
 </style>
 </head>
 <body>
@@ -86,7 +94,7 @@ footer a{color:#f6e3c3}
  <div class="wrap">
   <a class="brand" href="#top">Copas Suburban</a>
   <div class="links">
-   <a href="#keunggulan">Keunggulan</a><a href="#menu">Menu</a><a href="#info">Info</a><a href="#faq">FAQ</a>
+   <a href="#keunggulan">Keunggulan</a><a href="#menu">Menu</a><a href="#ulasan" id="nav-ulasan" class="hide">Ulasan</a><a href="#info">Info</a><a href="#faq">FAQ</a>
   </div>
   <a class="btn" href="#reservasi">Reservasi Sekarang</a>
  </div>
@@ -122,6 +130,15 @@ footer a{color:#f6e3c3}
    <div class="card"><div class="ico">🥩</div><div class="top"><h3>Black Pepper Beef</h3><span class="price">Rp 130K</span></div><p>Tender beef stir fried with black pepper sauce and onions.</p></div>
    <div class="card"><div class="ico">🍝</div><div class="top"><h3>Creamy Mushroom Pasta Chicken / Dory</h3><span class="price">Rp 80K</span></div><p>Creamy mushroom based pasta sauce, served with crispy dory / chicken.</p></div>
   </div>
+ </div>
+</section>
+
+<section id="ulasan" class="hide">
+ <div class="wrap">
+  <div class="title"><h2>Kata Pelanggan</h2><p>Ulasan pilihan dari Google Maps</p></div>
+  <div class="rv-stats" id="rv-stats"></div>
+  <div class="grid rv" id="rv-list"></div>
+  <div class="rv-more"><a class="btn alt" href="https://maps.app.goo.gl/GofQzFk4g9QtpCxeA" target="_blank" rel="noopener">Lihat semua ulasan di Google Maps</a></div>
  </div>
 </section>
 
@@ -311,6 +328,52 @@ const tm=new Date();tm.setDate(tm.getDate()+1);
 $('date').min=iso(tm);
 $('yr').textContent=new Date().getFullYear();
 status();setInterval(status,60000);syncGuests();
+
+/* ===== Week 4 · Level 1: ulasan dinamis dari Supabase ===== */
+// Project URL dan PUBLISHABLE key boleh ada di web (memang publik), karena akses dibatasi RLS:
+// hanya bisa membaca review dengan tampilkan = true. JANGAN pernah taruh Secret key / service_role di sini.
+const SUPABASE_URL='https://flptgumyuzbvergqbeny.supabase.co';      // contoh: https://abcdxyz.supabase.co
+const SUPABASE_ANON_KEY='sb_publishable_YIjR6BfTVaAXrOz-2Wnvqw_4sv0K3U6'; // Project Settings → API Keys → Publishable key (sb_publishable_...)
+
+async function sb(path){
+ const r=await fetch(SUPABASE_URL+'/rest/v1/'+path,{headers:{apikey:SUPABASE_ANON_KEY}});
+ if(!r.ok)throw new Error('Supabase '+r.status);
+ return r.json();
+}
+function mk(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+
+async function loadReviews(){
+ if(SUPABASE_URL.startsWith('GANTI')||SUPABASE_ANON_KEY.startsWith('GANTI'))return; // belum dikonfigurasi: section tetap tersembunyi
+ try{
+  const [rows,stats]=await Promise.all([
+   sb('reviews?select=review_id,reviewer,rating,teks,tanggal_review,kategori&tampilkan=eq.true&order=rating.desc,tanggal_review.desc&limit=6'),
+   sb('review_stats?select=total_review,rating_rata_rata').catch(()=>[])
+  ]);
+  if(!rows.length)return;
+  const list=$('rv-list');list.textContent='';
+  rows.forEach(r=>{
+   const card=mk('div','card');
+   const n=Math.max(0,Math.min(5,Number(r.rating)||0));
+   card.appendChild(mk('div','stars','★'.repeat(n)+'☆'.repeat(5-n)));
+   const t=(r.teks||'');
+   card.appendChild(mk('blockquote',null,'“'+(t.length>220?t.slice(0,217)+'…':t)+'”'));
+   const who=mk('div','who');
+   const nm=mk('span');nm.appendChild(mk('b',null,r.reviewer||'Pelanggan'));
+   if(r.tanggal_review)nm.appendChild(document.createTextNode(' · '+parse(r.tanggal_review).toLocaleDateString('id-ID',{month:'long',year:'numeric'})));
+   who.appendChild(nm);
+   if(r.kategori)who.appendChild(mk('span','chip',r.kategori));
+   card.appendChild(who);list.appendChild(card);
+  });
+  const s=stats[0];
+  if(s&&s.total_review){
+   const el=$('rv-stats');el.textContent='';
+   el.appendChild(mk('b',null,'★ '+s.rating_rata_rata));
+   el.appendChild(document.createTextNode(' dari '+s.total_review+' ulasan Google'));
+  }
+  $('ulasan').classList.remove('hide');$('nav-ulasan').classList.remove('hide');
+ }catch(e){console.warn('Ulasan tidak dimuat:',e.message)} // gagal: halaman tetap normal tanpa section ulasan
+}
+loadReviews();
 </script>
 </body>
 </html>
