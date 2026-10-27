@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Copas Suburban Dining · Asian Fusion di Gading Serpong</title>
-<meta name="description" content="Copas Suburban Dining, Asian fusion restaurant di Gading Serpong, Tangerang. Reservasi table & VIP room online.">
+<meta name="description" content="Copas Suburban Dining, Asian fusion restaurant di Gading Serpong, Tangerang. Reservasi Natal, Ramadhan, table & VIP room online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6ede0;--card:#fffaf1;--brown:#3e2616;--text:#4a3426;--accent:#a8481f;--accent2:#8a3a18;--gold:#c9973f;--line:#e3d3bd;--err:#b3261e}
+:root{--bg:#f6ede0;--card:#fffaf1;--brown:#3e2616;--text:#4a3426;--accent:#a8481f;--accent2:#8a3a18;--gold:#c9973f;--line:#e3d3bd;--err:#b3261e;--okc:#2e6b3a}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{font-family:Lato,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
@@ -25,16 +25,19 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px;
 .brand{color:#f6e3c3;font-size:1.15rem;font-weight:700;text-decoration:none}
 .links{display:flex;flex-wrap:wrap;gap:2px}
 .links a{color:#f1dcc0;text-decoration:none;padding:0 10px;font-size:.9rem;min-height:44px;display:flex;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:#fff;font:700 1rem Lato,sans-serif;cursor:pointer;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:#fff;font:700 1rem Lato,sans-serif;cursor:pointer;text-decoration:none;text-align:center}
 .btn:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.alt{background:transparent;color:var(--accent)}
 .btn.alt:hover{background:var(--accent);color:#fff}
 .btn.gold{background:var(--gold);border-color:var(--gold);color:#2b1a0e}
+.btn.wa{background:#1f9d55;border-color:#1f9d55}
 .hero{background:radial-gradient(circle at 20% 15%,#7d4c2c,transparent 55%),radial-gradient(circle at 85% 90%,#a8481f55,transparent 50%),linear-gradient(135deg,#3e2616,#5e3419);color:#fff;text-align:center;padding:96px 0 84px}
 .hero h1{color:#fff;font-size:clamp(2.2rem,7vw,3.8rem);line-height:1.15;margin:14px 0 10px}
 .hero p{max-width:560px;margin:0 auto 26px;color:#f1dcc0;font-size:1.1rem}
+.hero .evline{display:inline-block;margin:0 0 22px;padding:8px 16px;border-radius:999px;background:#ffffff1a;border:1px solid #ffffff33;color:#f6e3c3;text-decoration:none;font-weight:700;font-size:.95rem}
 .badge{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:700;background:#fff2;color:#fff}
-.badge.on{background:#2e6b3a;color:#fff}
+.badge.on{background:var(--okc);color:#fff}
 .badge.off{background:#7a2a20;color:#fff}
 .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
@@ -42,7 +45,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px;
 .card h3{margin:8px 0 4px}
 .menu .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .price{color:var(--accent);font-weight:700;white-space:nowrap}
-.form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;max-width:640px;margin:0 auto}
+.form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;max-width:680px;margin:0 auto}
 .f{margin-bottom:16px}
 label,.lbl{display:block;font-weight:700;margin-bottom:6px;font-size:.95rem}
 input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;min-height:44px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--text)}
@@ -50,7 +53,7 @@ input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;min
 .err{color:var(--err);font-size:.85rem;min-height:1.1em;margin-top:4px}
 .opts{display:grid;gap:8px}
 .opts label{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-weight:400;cursor:pointer;margin:0}
-.opts input{width:20px;height:20px;accent-color:var(--accent)}
+.opts input{width:20px;height:20px;flex:none;accent-color:var(--accent)}
 .opts label:has(input:checked){border-color:var(--accent);background:#fbeee3}
 .step{display:flex;align-items:center;gap:14px}
 .step button{width:44px;height:44px;border-radius:50%;border:2px solid var(--accent);background:#fff;color:var(--accent);font-size:1.4rem;cursor:pointer}
@@ -61,8 +64,9 @@ input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;min
 .sum dt{font-weight:700}
 .sum dd{word-break:break-word}
 .row{display:flex;gap:10px;flex-wrap:wrap}
+.row .btn{flex:1 1 200px}
 .ok{text-align:center}
-.ok .code{font-family:"Playfair Display",Georgia,serif;font-size:2.4rem;color:var(--accent);margin:8px 0}
+.ok .code{font-family:"Playfair Display",Georgia,serif;font-size:2.2rem;color:var(--accent);margin:6px 0;letter-spacing:1px}
 table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
 td{padding:11px 14px;border-bottom:1px solid var(--line)}
 td:last-child{text-align:right;font-weight:700}
@@ -87,6 +91,42 @@ footer a{color:#f6e3c3}
 .rv .who b{color:var(--brown)}
 .chip{display:inline-block;padding:2px 10px;border-radius:999px;background:#fbeee3;border:1px solid var(--line);font-size:.78rem;text-transform:capitalize}
 .rv-more{text-align:center;margin-top:26px}
+/* ===== Reservasi event ===== */
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 auto 16px;max-width:680px}
+.tabs button{flex:1 1 150px;min-height:48px;padding:6px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--brown);font:700 .95rem Lato,sans-serif;cursor:pointer;line-height:1.25}
+.tabs button small{display:block;font-weight:400;font-size:.78rem;opacity:.8}
+.tabs button[aria-selected=true]{background:var(--brown);border-color:var(--brown);color:#f6e3c3}
+.evbox{max-width:680px;margin:0 auto 18px;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,#5e3419,#3e2616);color:#f6e3c3}
+.evbox h3{color:#fff;font-size:1.25rem}
+.evbox p{font-size:.93rem;margin-top:4px}
+.evbox .pill{display:inline-block;margin:8px 6px 0 0;padding:3px 10px;border-radius:999px;background:#ffffff1f;font-size:.82rem;font-weight:700}
+.pick{border:1.5px dashed var(--line);border-radius:14px;padding:14px;background:#fff}
+.pick .floor{font-weight:700;font-size:.85rem;margin:10px 0 6px;color:var(--brown)}
+.pick .floor:first-child{margin-top:0}
+.mj{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.mj button{min-height:52px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--text);font:700 .9rem Lato,sans-serif;cursor:pointer;line-height:1.15}
+.mj button small{display:block;font-weight:400;font-size:.72rem}
+.mj button.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+.mj button:disabled{background:#efe7dc;color:#a8998a;cursor:not-allowed;text-decoration:line-through}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;margin-top:10px;opacity:.85}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;border:1.5px solid var(--line);background:#fff}
+.legend .s{background:var(--accent);border-color:var(--accent)}
+.legend .x{background:#efe7dc}
+.rulebox{background:#fbeee3;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:.9rem}
+.rulebox ul{padding-left:18px;margin:6px 0 10px}
+.rulebox li{margin-bottom:4px}
+.agree{display:flex;gap:10px;align-items:flex-start;font-weight:700;cursor:pointer;margin:0}
+.agree input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--accent)}
+.timer{font-size:1.05rem;margin:8px 0 14px}
+.timer b{font-family:"Playfair Display",Georgia,serif;font-size:1.6rem;color:var(--accent)}
+.notice{border-radius:12px;padding:12px 14px;font-size:.9rem;margin-bottom:16px;background:#fbeee3;border:1px solid var(--line)}
+.notice.bad{background:#fdecea;border-color:#f3c3be;color:var(--err)}
+.notice.good{background:#e8f3ea;border-color:#bfdcc5;color:var(--okc)}
+.st{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:.85rem;background:#efe7dc}
+.st.ok{background:#e8f3ea;color:var(--okc)}
+.st.wait{background:#fff3d6;color:#8a5a00}
+.st.no{background:#fdecea;color:var(--err)}
+.spin{opacity:.7;font-size:.9rem}
 </style>
 </head>
 <body>
@@ -94,7 +134,7 @@ footer a{color:#f6e3c3}
  <div class="wrap">
   <a class="brand" href="#top">Copas Suburban</a>
   <div class="links">
-   <a href="#keunggulan">Keunggulan</a><a href="#menu">Menu</a><a href="#ulasan" id="nav-ulasan" class="hide">Google Review</a><a href="#info">Info</a><a href="#faq">FAQ</a>
+   <a href="#keunggulan">Keunggulan</a><a href="#menu">Menu</a><a href="#ulasan" id="nav-ulasan" class="hide">Google Review</a><a href="#cek">Cek Reservasi</a><a href="#info">Info</a><a href="#faq">FAQ</a>
   </div>
   <a class="btn" href="#reservasi">Reservasi Sekarang</a>
  </div>
@@ -105,6 +145,7 @@ footer a{color:#f6e3c3}
   <span id="status" class="badge">Memeriksa jam buka…</span>
   <h1>Copas Suburban Dining</h1>
   <p>Asian Fusion, Served Warm &amp; Cozy.<br>Nikmati hidangan Asian fusion di Gading Serpong, Tangerang.</p>
+  <a class="evline hide" id="hero-ev" href="#reservasi"></a><br>
   <a class="btn gold" href="#reservasi">Reservasi Sekarang</a>
  </div>
 </header>
@@ -144,34 +185,61 @@ footer a{color:#f6e3c3}
 
 <section id="reservasi">
  <div class="wrap">
-  <div class="title"><h2>Reservasi Meja</h2><p>Book your table, minimal H-1. Ketersediaan dikonfirmasi tim kami via WhatsApp.</p></div>
+  <div class="title"><h2>Reservasi</h2><p id="rsv-sub">Pilih jadwal &amp; meja, lalu amankan dengan DP. Minimal H-1.</p></div>
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Pilih jenis reservasi"></div>
+  <div class="evbox" id="evbox" aria-live="polite"></div>
 
   <form id="form" class="form" novalidate>
-   <div class="f"><label for="name">Nama / Name</label><input type="text" id="name" autocomplete="name" placeholder="Nama lengkap"><div class="err" id="e-name"></div></div>
+   <div class="f"><label for="name">Nama / Name</label><input type="text" id="name" autocomplete="name" maxlength="80" placeholder="Nama lengkap"><div class="err" id="e-name"></div></div>
    <div class="f"><label for="phone">Nomor WhatsApp</label><input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="0812-3456-7890"><div class="err" id="e-phone"></div></div>
-   <div class="f"><span class="lbl">Pilih Table / Choose Seating</span>
+   <div class="f"><span class="lbl">Pilih Seating</span>
     <div class="opts">
-     <label><input type="radio" name="type" value="reg" checked> Table Reguler · 5 pax/table · DP Rp 250.000/table</label>
-     <label><input type="radio" name="type" value="vip1"> VIP Room 1 · 6–10 pax · DP Rp 500.000</label>
-     <label><input type="radio" name="type" value="vip2"> VIP Room 2 · 10–14 pax · DP Rp 500.000</label>
+     <label><input type="radio" name="type" value="reg" checked> <span id="lbl-reg">Table Reguler · 5 pax/table</span></label>
+     <label><input type="radio" name="type" value="vip1"> <span id="lbl-vip1">VIP Room 1 · 6–10 pax</span></label>
+     <label><input type="radio" name="type" value="vip2"> <span id="lbl-vip2">VIP Room 2 · 10–14 pax</span></label>
     </div>
    </div>
-   <div class="f"><label for="date">Tanggal / Date</label><input type="date" id="date"><div class="err" id="e-date"></div></div>
-   <div class="f"><label for="time">Jam Kedatangan / Arrival Time</label><select id="time" disabled><option value="">Pilih tanggal dulu</option></select><div class="err" id="e-time"></div><div class="hint">Pemakaian table maksimal 3 jam.</div></div>
    <div class="f"><span class="lbl">Jumlah Tamu / Guests</span>
     <div class="step"><button type="button" id="minus" aria-label="Kurangi tamu">−</button><output id="gv" aria-live="polite">2</output><button type="button" id="plus" aria-label="Tambah tamu">+</button></div>
     <div class="hint" id="hint"></div>
     <div class="hint">Grup lebih dari 25 pax? Hubungi kami via WhatsApp.</div>
    </div>
-   <div class="f"><label for="note">Catatan Khusus (opsional)</label><textarea id="note" rows="3" placeholder="Contoh: ulang tahun, kursi bayi, area non-smoking"></textarea></div>
+   <div class="f"><label for="date">Tanggal / Date</label><input type="date" id="date"><div class="hint" id="date-hint"></div><div class="err" id="e-date"></div></div>
+   <div class="f"><label for="time">Jam Kedatangan / Arrival Time</label><select id="time" disabled><option value="">Pilih tanggal dulu</option></select><div class="err" id="e-time"></div><div class="hint">Pemakaian meja maksimal 3 jam.</div></div>
+   <div class="f hide" id="pick-wrap"><span class="lbl">Pilih Meja</span>
+    <div class="pick" id="pick"></div>
+    <div class="err" id="e-pick"></div>
+   </div>
+   <div class="f"><label for="note">Catatan Khusus (opsional)</label><textarea id="note" rows="3" maxlength="300" placeholder="Contoh: ulang tahun, kursi bayi, bawa kue sendiri"></textarea></div>
+   <div class="f rulebox">
+    <b>Ketentuan Reservasi</b>
+    <ul id="rules-list"></ul>
+    <label class="agree"><input type="checkbox" id="agree"> Saya sudah membaca dan menyetujui ketentuan di atas.</label>
+    <div class="err" id="e-agree"></div>
+   </div>
    <button class="btn" type="submit" style="width:100%">Lihat Ringkasan Reservasi</button>
   </form>
 
   <div id="summary" class="form sum hide">
    <h3>Ringkasan Reservasi</h3>
    <dl id="sumlist"></dl>
-   <p class="hint" style="margin-bottom:16px">DP bersifat <b>NO REFUND</b>. Tim kami akan membalas via WhatsApp untuk konfirmasi jadwal &amp; info pembayaran DP.</p>
-   <div class="row"><button class="btn" id="send" type="button">Konfirmasi &amp; Kirim</button><button class="btn alt" id="edit" type="button">Ubah Data</button></div>
+   <div class="notice bad hide" id="send-err"></div>
+   <p class="hint" style="margin-bottom:16px" id="sum-note"></p>
+   <div class="row"><button class="btn" id="send" type="button">Amankan Meja</button><button class="btn alt" id="edit" type="button">Ubah Data</button></div>
+  </div>
+
+  <div id="held" class="form ok hide">
+   <div style="font-size:2.6rem">🪑</div>
+   <h3>Meja Anda sudah kami tahan</h3>
+   <p>Kode booking:</p>
+   <div class="code" id="h-code"></div>
+   <p class="hint" style="margin:0">Simpan kode ini untuk cek &amp; ubah reservasi.</p>
+   <div class="timer" id="h-timer"></div>
+   <div class="sum" style="text-align:left"><dl id="h-list"></dl></div>
+   <div class="row" style="margin-bottom:12px"><a class="btn wa" id="h-pay" href="#" target="_blank" rel="noopener">Bayar DP via WhatsApp</a></div>
+   <p class="hint">Kirim pesan yang sudah kami siapkan, tim kami akan memberikan info pembayaran. Reservasi pasti setelah DP diterima. DP bersifat <b>NO REFUND</b>.</p>
+   <button class="btn alt" id="h-again" type="button" style="margin-top:14px">Buat Reservasi Lain</button>
   </div>
 
   <div id="success" class="form ok hide">
@@ -186,7 +254,35 @@ footer a{color:#f6e3c3}
  </div>
 </section>
 
-<section id="info" class="alt-bg">
+<section id="cek" class="alt-bg">
+ <div class="wrap">
+  <div class="title"><h2>Cek / Ubah Reservasi</h2><p>Masukkan kode booking dan nomor WhatsApp yang dipakai saat reservasi.</p></div>
+  <form id="cek-form" class="form" novalidate>
+   <div class="two" style="gap:12px">
+    <div class="f" style="margin:0"><label for="c-kode">Kode Booking</label><input type="text" id="c-kode" placeholder="CPS-XXXXXX" autocapitalize="characters" maxlength="12"><div class="err" id="e-c-kode"></div></div>
+    <div class="f" style="margin:0"><label for="c-phone">Nomor WhatsApp</label><input type="tel" id="c-phone" inputmode="tel" placeholder="0812-3456-7890"><div class="err" id="e-c-phone"></div></div>
+   </div>
+   <button class="btn" type="submit" style="width:100%;margin-top:8px" id="c-btn">Cek Reservasi</button>
+  </form>
+
+  <div id="cek-out" class="form hide" style="margin-top:16px" aria-live="polite">
+   <div class="notice hide" id="c-msg"></div>
+   <div id="c-card"></div>
+   <div id="rs" class="hide" style="margin-top:18px;border-top:1px solid var(--line);padding-top:16px">
+    <h3 style="font-size:1.15rem">Ajukan Reschedule</h3>
+    <p class="hint" id="rs-info" style="margin-bottom:12px"></p>
+    <div class="two" style="gap:12px">
+     <div class="f" style="margin:0"><label for="rs-date">Tanggal baru</label><input type="date" id="rs-date"></div>
+     <div class="f" style="margin:0"><label for="rs-time">Jam baru</label><select id="rs-time" disabled><option value="">Pilih tanggal dulu</option></select></div>
+    </div>
+    <div class="err" id="e-rs"></div>
+    <button class="btn" type="button" id="rs-btn" style="width:100%;margin-top:8px">Reschedule Sekarang</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="info">
  <div class="wrap">
   <div class="title"><h2>Info &amp; Lokasi</h2></div>
   <div class="two">
@@ -200,11 +296,13 @@ footer a{color:#f6e3c3}
    <div>
     <h3>📋 Aturan Reservasi</h3>
     <ul class="rules" style="margin-top:8px">
-     <li>Reservasi minimal <b>H-1</b>.</li>
-     <li>Reservasi per table, pemakaian maksimal <b>3 jam</b>.</li>
-     <li>Table reguler: 5 pax/table, DP <b>Rp 250.000</b>/table.</li>
-     <li>VIP Room 1 (6–10 pax) &amp; VIP Room 2 (10–14 pax): DP <b>Rp 500.000</b>/VIP.</li>
+     <li>Reservasi minimal <b>H-1</b>, pemakaian meja maksimal <b>3 jam</b>.</li>
+     <li>Hari biasa: meja reguler (5 pax) DP <b>Rp 250.000</b>/meja, VIP Room DP <b>Rp 500.000</b>.</li>
+     <li>Periode event (Natal &amp; Ramadhan): DP <b>Rp 500.000</b> untuk meja reguler maupun VIP. VIP Room berlaku <b>minimum charge</b>.</li>
+     <li>Meja ditahan <b>30 menit</b> untuk pembayaran DP. Lewat dari itu, meja dilepas untuk tamu lain.</li>
      <li>DP berlaku sistem <b>NO REFUND</b>.</li>
+     <li>Reschedule maksimal <b>2x</b> dalam periode event, paling lambat <b>H-1</b>, selama slot tersedia. DP ikut pindah ke jadwal baru.</li>
+     <li>Mohon datang tepat waktu. Terlambat <b>30 menit tanpa konfirmasi</b>, meja diberikan ke tamu yang sudah antri.</li>
      <li>Kapasitas: Lantai 1 maks. 25 pax, Lantai 2 sekitar 60–80 pax.</li>
     </ul>
    </div>
@@ -212,13 +310,17 @@ footer a{color:#f6e3c3}
  </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="alt-bg">
  <div class="wrap" style="max-width:720px">
   <div class="title"><h2>FAQ</h2></div>
-  <details><summary>Berapa DP yang harus dibayar?</summary><p>Table reguler Rp 250.000 per table, VIP room Rp 500.000 per VIP. Pemakaian maksimal 3 jam.</p></details>
-  <details><summary>Apakah DP bisa di-refund?</summary><p>Tidak. Reservasi menggunakan sistem DP dan NO REFUND.</p></details>
+  <details><summary>Berapa DP yang harus dibayar?</summary><p>Hari biasa: meja reguler Rp 250.000 per meja, VIP room Rp 500.000. Selama periode Natal dan Ramadhan: Rp 500.000 untuk meja reguler maupun VIP. VIP room berlaku minimum charge.</p></details>
+  <details><summary>Apakah DP bisa di-refund?</summary><p>Tidak. Reservasi menggunakan sistem DP dan NO REFUND. Namun DP bisa ikut pindah jika Anda reschedule sesuai ketentuan.</p></details>
+  <details><summary>Berapa lama meja ditahan setelah saya memesan?</summary><p>30 menit. Silakan selesaikan pembayaran DP dalam waktu tersebut. Jika belum dibayar, meja otomatis dilepas untuk tamu lain.</p></details>
+  <details><summary>Bisakah saya mengubah jadwal (reschedule)?</summary><p>Bisa, maksimal 2x dalam periode event yang sama, paling lambat H-1, dan selama slot masih tersedia. Gunakan menu Cek / Ubah Reservasi dengan kode booking Anda.</p></details>
+  <details><summary>Bagaimana jika saya terlambat datang?</summary><p>Mohon kabari kami via WhatsApp. Jika terlambat 30 menit tanpa konfirmasi, meja akan diberikan ke tamu yang sudah antri. Anda akan mendapat meja lain sesuai antrian, atau bisa memilih reschedule.</p></details>
   <details><summary>Kapan paling lambat reservasi?</summary><p>Minimal H-1, jadi paling cepat untuk besok hari.</p></details>
-  <details><summary>Bagaimana jika grup saya lebih dari 25 orang?</summary><p>Silakan hubungi kami langsung via WhatsApp agar kami bantu atur susunan table.</p></details>
+  <details><summary>Boleh membawa kue sendiri?</summary><p>Boleh. Tamu selalu diperbolehkan membawa kue dari luar untuk perayaan.</p></details>
+  <details><summary>Bagaimana jika grup saya lebih dari 25 orang?</summary><p>Silakan hubungi kami langsung via WhatsApp agar kami bantu atur susunan meja.</p></details>
  </div>
 </section>
 
@@ -229,121 +331,417 @@ footer a{color:#f6e3c3}
   <div style="margin-top:16px"><a class="btn gold" href="https://wa.me/6285195895678" target="_blank" rel="noopener">Chat via WhatsApp</a></div>
   <div class="soc"><a href="https://wa.me/6285195895678" target="_blank" rel="noopener">WhatsApp: +62 851-9589-5678</a><a href="https://maps.app.goo.gl/GofQzFk4g9QtpCxeA" target="_blank" rel="noopener">Google Maps</a></div>
   <p>© <span id="yr"></span> Copas Suburban Dining. All rights reserved.</p>
-  <p style="font-size:.85rem;opacity:.8;margin-top:6px">Built with AI · AI Builder Bootcamp Showcase</p>
  </div>
 </footer>
 <a class="fab" href="https://wa.me/6285195895678" target="_blank" rel="noopener" aria-label="Chat WhatsApp">💬</a>
 
 <script>
-const WA='6285195895678',$=id=>document.getElementById(id);
+/* ================= Konfigurasi ================= */
+const WA='6285195895678';
+// Project URL dan PUBLISHABLE key boleh ada di web (memang publik). Akses dibatasi RLS & fungsi rsv_*.
+// JANGAN pernah taruh Secret key / service_role di sini.
+const SUPABASE_URL='https://flptgumyuzbvergqbeny.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_YIjR6BfTVaAXrOz-2Wnvqw_4sv0K3U6';
+// Cadangan bila database belum siap. Data utama diambil dari tabel event_periode di Supabase.
+const EVENTS_DEFAULT=[
+ {kode:'natal',nama:'Natal',mulai:'2026-12-01',selesai:'2026-12-31',dp_reg:500000,dp_vip:500000,maks_reschedule:2,catatan:'Paket & menu spesial Natal segera kami umumkan.'},
+ {kode:'ramadhan',nama:'Ramadhan',mulai:'2027-02-08',selesai:'2027-03-09',dp_reg:500000,dp_vip:500000,maks_reschedule:2,catatan:'Bukber: mohon datang tepat waktu. Paket bukber segera kami umumkan.'}
+];
+const EV_ICON={natal:'🎄',ramadhan:'🌙'};
+const DP_BIASA={reg:250000,vip:500000};
+
+/* ================= Utilitas ================= */
+const $=id=>document.getElementById(id);
 const TYPES={reg:{label:'Table Reguler',min:1,max:25},vip1:{label:'VIP Room 1',min:6,max:10},vip2:{label:'VIP Room 2',min:10,max:14}};
-const rp=n=>'Rp '+n.toLocaleString('id-ID'),pad=n=>String(n).padStart(2,'0');
+const rp=n=>'Rp '+Number(n).toLocaleString('id-ID'),pad=n=>String(n).padStart(2,'0');
 const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const parse=v=>{const [y,m,d]=v.split('-').map(Number);return new Date(y,m-1,d)};
+const fmtDate=v=>parse(v).toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const fmtShort=v=>parse(v).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'});
 const closeHour=day=>(day===5||day===6)?23:22;
-const type=()=>document.querySelector('input[name=type]:checked').value;
-let guests=2,data={},waUrl='';
-const calcDp=()=>type()==='reg'?Math.ceil(guests/5)*250000:500000;
+const toMin=t=>{const [h,m]=t.split(':').map(Number);return h*60+m};
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const today0=()=>{const t=new Date();t.setHours(0,0,0,0);return t};
+const tomorrowIso=()=>iso(addDays(today0(),1));
+function mk(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+function normPhone(v){let p=(v||'').replace(/[\s\-().]/g,'');if(p.startsWith('+'))p=p.slice(1);if(p.startsWith('0'))p='62'+p.slice(1);return /^628\d{8,11}$/.test(p)?p:null}
+const waLink=msg=>`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
 
+/* ================= Supabase ================= */
+const SB_READY=!SUPABASE_URL.startsWith('GANTI')&&!SUPABASE_ANON_KEY.startsWith('GANTI');
+async function sb(path){
+ const r=await fetch(SUPABASE_URL+'/rest/v1/'+path,{headers:{apikey:SUPABASE_ANON_KEY}});
+ if(!r.ok)throw new Error('Supabase '+r.status);
+ return r.json();
+}
+async function rpc(fn,args){
+ const r=await fetch(SUPABASE_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{apikey:SUPABASE_ANON_KEY,'Content-Type':'application/json'},body:JSON.stringify(args||{})});
+ const body=await r.json().catch(()=>null);
+ if(!r.ok){const e=new Error((body&&body.message)||('HTTP '+r.status));e.code=body&&body.code;e.status=r.status;throw e}
+ return body;
+}
+const ERR={
+ SLOT_PENUH:'Maaf, meja/jam tersebut baru saja dipesan tamu lain. Silakan pilih meja atau jam lain.',
+ MIN_H1:'Reservasi minimal H-1 (paling cepat besok).',
+ JAM_TIDAK_VALID:'Jam kedatangan tidak tersedia untuk tanggal tersebut.',
+ HOLD_TERLALU_BANYAK:'Nomor ini masih punya reservasi yang menunggu pembayaran DP. Selesaikan dulu atau tunggu 30 menit.',
+ PAX_TIDAK_SESUAI:'Jumlah tamu tidak sesuai dengan meja yang dipilih.',
+ MEJA_TIDAK_VALID:'Meja yang dipilih tidak valid. Silakan pilih ulang.',
+ MEJA_KOSONG:'Silakan pilih meja.',
+ NAMA_TIDAK_VALID:'Nama wajib diisi.',
+ WA_TIDAK_VALID:'Nomor WhatsApp belum valid.',
+ TANGGAL_TERLALU_JAUH:'Tanggal terlalu jauh. Silakan hubungi kami via WhatsApp.',
+ TIDAK_DITEMUKAN:'Reservasi tidak ditemukan. Periksa lagi kode booking dan nomor WhatsApp.',
+ STATUS_TIDAK_BISA:'Reschedule hanya bisa untuk reservasi yang DP-nya sudah diterima.',
+ BATAS_RESCHEDULE:'Batas reschedule untuk reservasi ini sudah habis. Silakan hubungi kami via WhatsApp.',
+ LEWAT_H1:'Reschedule paling lambat H-1 sebelum jadwal reservasi. Silakan hubungi kami via WhatsApp.',
+ BEDA_PERIODE:'Jadwal baru harus masih dalam periode event yang sama.'
+};
+const errText=e=>ERR[e&&e.message]||'Sistem sedang sibuk. Silakan coba lagi, atau hubungi kami via WhatsApp.';
+
+/* ================= State ================= */
+let LIVE=false,EVENTS=EVENTS_DEFAULT.filter(e=>e.selesai>=iso(today0()));
+let tab=null,guests=2,data={},avail={},sel=[],holdTimer=null;
+const type=()=>document.querySelector('input[name=type]:checked').value;
+const evOf=k=>EVENTS.find(e=>e.kode===k)||null;
+const evByDate=v=>EVENTS.find(e=>v>=e.mulai&&v<=e.selesai)||null;
+const curEv=()=>tab==='biasa'?null:evOf(tab);
+const need=()=>type()==='reg'?Math.ceil(guests/5):1;
+const dpPer=(t,ev)=>ev?(t==='reg'?ev.dp_reg:ev.dp_vip):(t==='reg'?DP_BIASA.reg:DP_BIASA.vip);
+const calcDp=()=>dpPer(type(),curEv())*need();
+
+/* ================= Jam buka ================= */
 function status(){
  const n=new Date(),h=n.getHours()+n.getMinutes()/60,c=closeHour(n.getDay()),open=h>=8&&h<c,b=$('status');
  b.className='badge '+(open?'on':'off');
  b.textContent=open?`● Buka sekarang · Open until ${c}:00`:'● Tutup · Opens daily at 08:00';
 }
-function slots(){
- const v=$('date').value,s=$('time');
- if(!v){s.innerHTML='<option value="">Pilih tanggal dulu</option>';s.disabled=true;return}
- const last=closeHour(parse(v).getDay())-3;
- let o='<option value="">Pilih jam / Select time</option>';
- for(let m=480;m<=last*60;m+=30){const t=`${pad(Math.floor(m/60))}:${pad(m%60)}`;o+=`<option value="${t}">${t}</option>`}
- s.innerHTML=o;s.disabled=false;
+
+/* ================= Tab event ================= */
+function renderTabs(){
+ const t=$('tabs');t.textContent='';
+ const list=[...EVENTS.map(e=>({k:e.kode,n:`${EV_ICON[e.kode]||'⭐'} ${e.nama}`,s:`${fmtShort(e.mulai)} – ${fmtShort(e.selesai)}`})),{k:'biasa',n:'📅 Hari Biasa',s:'Reservasi reguler'}];
+ list.forEach(x=>{
+  const b=mk('button');b.type='button';b.setAttribute('role','tab');b.dataset.k=x.k;
+  b.appendChild(document.createTextNode(x.n));b.appendChild(mk('small',null,x.s));
+  b.onclick=()=>setTab(x.k,true);t.appendChild(b);
+ });
+ const first=EVENTS[0];
+ const he=$('hero-ev');
+ if(first){he.textContent=`${EV_ICON[first.kode]||'⭐'} Reservasi ${EVENTS.map(e=>e.nama).join(' & ')} sudah dibuka`;he.classList.remove('hide')}
+ else he.classList.add('hide');
 }
+function setTab(k,user){
+ tab=k;
+ document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.k===k)));
+ const ev=curEv(),box=$('evbox');box.textContent='';
+ if(ev){
+  box.appendChild(mk('h3',null,`${EV_ICON[ev.kode]||'⭐'} Reservasi ${ev.nama}`));
+  box.appendChild(mk('p',null,`${fmtDate(ev.mulai)} – ${fmtDate(ev.selesai)}`));
+  if(ev.catatan)box.appendChild(mk('p',null,ev.catatan));
+  [`DP ${rp(ev.dp_reg)} per meja`,'VIP: minimum charge','Hold 30 menit','Reschedule maks '+(ev.maks_reschedule||2)+'x'].forEach(t=>box.appendChild(mk('span','pill',t)));
+ }else{
+  box.appendChild(mk('h3',null,'📅 Reservasi Hari Biasa'));
+  box.appendChild(mk('p',null,'Meja reguler DP Rp 250.000/meja · VIP Room DP Rp 500.000. Pemakaian maksimal 3 jam.'));
+ }
+ // batas tanggal
+ const d=$('date'),tm=tomorrowIso();
+ if(ev){d.min=ev.mulai>tm?ev.mulai:tm;d.max=ev.selesai;$('date-hint').textContent=`Pilih tanggal dalam periode ${ev.nama}.`}
+ else{d.min=tm;d.max=iso(addDays(today0(),180));$('date-hint').textContent=''}
+ if(d.value&&(d.value<d.min||d.value>d.max)&&user){d.value=''}
+ labels();renderRules();syncGuests();onDate();
+}
+function labels(){
+ const ev=curEv();
+ $('lbl-reg').textContent=`Table Reguler · 5 pax/table · DP ${rp(dpPer('reg',ev))}/table`;
+ $('lbl-vip1').textContent=`VIP Room 1 · 6–10 pax · DP ${rp(dpPer('vip1',ev))}${ev?' · minimum charge':''}`;
+ $('lbl-vip2').textContent=`VIP Room 2 · 10–14 pax · DP ${rp(dpPer('vip2',ev))}${ev?' · minimum charge':''}`;
+}
+function rulesFor(ev){
+ return [
+  'Reservasi minimal H-1. Pemakaian meja maksimal 3 jam.',
+  ev?`DP ${rp(ev.dp_reg)} per meja reguler maupun VIP. VIP Room berlaku minimum charge.`:'DP Rp 250.000 per meja reguler, Rp 500.000 untuk VIP Room.',
+  'Meja ditahan 30 menit untuk pembayaran DP. Lewat 30 menit belum dibayar, meja dilepas untuk tamu lain.',
+  'DP tidak bisa di-refund (NO REFUND).',
+  ev?`Reschedule maksimal ${ev.maks_reschedule||2}x selama periode ${ev.nama}, paling lambat H-1, selama slot masih tersedia. DP ikut pindah ke jadwal baru.`:'Reschedule maksimal 2x, paling lambat H-1, selama slot masih tersedia. DP ikut pindah ke jadwal baru.',
+  'Mohon datang tepat waktu. Terlambat 30 menit tanpa konfirmasi, meja diberikan ke tamu yang sudah antri. Tamu yang terlambat mendapat meja lain sesuai antrian, atau bisa memilih reschedule.'
+ ];
+}
+function renderRules(){
+ const ul=$('rules-list');ul.textContent='';
+ rulesFor(curEv()).forEach(r=>ul.appendChild(mk('li',null,r)));
+ $('agree').checked=false;
+}
+
+/* ================= Ketersediaan ================= */
+async function loadAvail(v,force){
+ if(!LIVE||!v)return null;
+ if(avail[v]&&!force)return avail[v];
+ try{avail[v]=await rpc('rsv_ketersediaan',{p_tanggal:v});return avail[v]}
+ catch(e){console.warn('Ketersediaan gagal:',e.message);return null}
+}
+function freeTables(av,t,time){
+ if(!av)return [];
+ const s=toMin(time),e=s+180;
+ return av.meja.filter(m=>m.tipe===t&&!av.terisi.some(x=>x.meja===m.kode&&toMin(x.mulai)<e&&s<toMin(x.selesai)));
+}
+function slotOptions(v,sel,av,t,n){
+ const s=sel;
+ if(!v){s.innerHTML='<option value="">Pilih tanggal dulu</option>';s.disabled=true;return}
+ const prev=s.value,last=closeHour(parse(v).getDay())-3;
+ s.textContent='';
+ s.appendChild(new Option('Pilih jam / Select time',''));
+ for(let m=480;m<=last*60;m+=30){
+  const tt=`${pad(Math.floor(m/60))}:${pad(m%60)}`;
+  const o=new Option(tt,tt);
+  if(av&&t){const f=freeTables(av,t,tt).length;if(f<n){o.disabled=true;o.textContent=tt+' · penuh'}}
+  s.appendChild(o);
+ }
+ s.disabled=false;
+ if(prev&&[...s.options].some(o=>o.value===prev&&!o.disabled))s.value=prev;
+}
+async function onDate(){
+ const v=$('date').value;
+ if(v&&tab==='biasa'){const ev=evByDate(v);if(ev){setTab(ev.kode,false);$('date').value=v;$('date-hint').textContent=`Tanggal ini masuk periode ${ev.nama}, jadi ketentuan ${ev.nama} berlaku.`;}}
+ slotOptions(v,$('time'),null);
+ if(v&&LIVE){$('pick').textContent='Memuat ketersediaan meja…';$('pick-wrap').classList.remove('hide');}
+ const av=await loadAvail(v);
+ if(v!==$('date').value)return;
+ slotOptions(v,$('time'),av,type(),need());
+ renderPick();
+}
+function renderPick(){
+ const wrap=$('pick-wrap'),box=$('pick');
+ if(!LIVE){wrap.classList.add('hide');return}
+ wrap.classList.remove('hide');box.textContent='';
+ const v=$('date').value,t=$('time').value,av=avail[v];
+ if(!v||!t||!av){box.appendChild(mk('div','hint','Pilih tanggal dan jam untuk melihat meja yang tersedia.'));sel=[];return}
+ const ty=type(),n=need(),free=new Set(freeTables(av,ty,t).map(m=>m.kode));
+ const mine=av.meja.filter(m=>m.tipe===ty);
+ sel=sel.filter(k=>free.has(k));
+ if(ty!=='reg'){sel=free.size?[mine[0].kode]:[]}
+ const floors={};mine.forEach(m=>(floors[m.lantai]=floors[m.lantai]||[]).push(m));
+ Object.keys(floors).forEach(f=>{
+  box.appendChild(mk('div','floor',f==='VIP'?'VIP Room':'Lantai '+f));
+  const g=mk('div','mj');
+  floors[f].forEach(m=>{
+   const b=mk('button');b.type='button';b.appendChild(document.createTextNode(m.kode));
+   const ok=free.has(m.kode);
+   b.appendChild(mk('small',null,ok?`${m.kapasitas} pax`:'terisi'));
+   b.disabled=!ok;b.classList.toggle('sel',sel.includes(m.kode));
+   b.setAttribute('aria-pressed',String(sel.includes(m.kode)));
+   if(ty==='reg')b.onclick=()=>{
+    if(sel.includes(m.kode))sel=sel.filter(k=>k!==m.kode);
+    else{if(sel.length>=n)sel.shift();sel.push(m.kode)}
+    renderPick();
+   };
+   g.appendChild(b);
+  });
+  box.appendChild(g);
+ });
+ const info=mk('div','hint');
+ if(ty==='reg')info.textContent=`Pilih ${n} meja · dipilih ${sel.length} dari ${n}. Tersedia ${free.size} meja di jam ini.`;
+ else info.textContent=free.size?`${TYPES[ty].label} tersedia di jam ini.`:`${TYPES[ty].label} sudah terisi di jam ini. Silakan pilih jam lain.`;
+ box.appendChild(info);
+ const lg=mk('div','legend');[['','Tersedia'],['s','Dipilih'],['x','Terisi']].forEach(([c,l])=>{const s=mk('span');s.appendChild(mk('i',c));s.appendChild(document.createTextNode(l));lg.appendChild(s)});
+ box.appendChild(lg);
+}
+
+/* ================= Form reservasi ================= */
 function syncGuests(){
  const t=TYPES[type()];
  guests=Math.min(t.max,Math.max(t.min,guests));
  $('gv').textContent=guests;
  $('minus').disabled=guests<=t.min;$('plus').disabled=guests>=t.max;
  $('hint').textContent=type()==='reg'
-  ?`${Math.ceil(guests/5)} table · DP ${rp(calcDp())} (max 3 jam)`
-  :`Kapasitas ${t.min}–${t.max} pax · DP ${rp(calcDp())} (max 3 jam)`;
+  ?`${need()} meja · DP ${rp(calcDp())} (max 3 jam)`
+  :`Kapasitas ${t.min}–${t.max} pax · DP ${rp(calcDp())} (max 3 jam)${curEv()?' · minimum charge':''}`;
 }
+function refreshAfterChange(){syncGuests();const v=$('date').value;if(v)slotOptions(v,$('time'),avail[v],type(),need());renderPick()}
 function validate(){
  const e={};
  const name=$('name').value.trim();
  if(name.length<2)e.name='Nama wajib diisi ya / Please enter your name.';
- let p=$('phone').value.replace(/[\s\-().]/g,'');
- if(p.startsWith('+'))p=p.slice(1);
- if(p.startsWith('0'))p='62'+p.slice(1);
- if(!/^628\d{8,11}$/.test(p))e.phone='Nomor WhatsApp belum valid. Contoh: 0812-3456-7890.';
+ const p=normPhone($('phone').value);
+ if(!p)e.phone='Nomor WhatsApp belum valid. Contoh: 0812-3456-7890.';
  const dv=$('date').value;
  if(!dv)e.date='Pilih tanggal reservasi ya.';
- else{const t=new Date();t.setHours(0,0,0,0);t.setDate(t.getDate()+1);
-  if(parse(dv)<t)e.date='Reservasi minimal H-1 (paling cepat besok).'}
+ else if(dv<tomorrowIso())e.date='Reservasi minimal H-1 (paling cepat besok).';
+ else if(curEv()&&(dv<curEv().mulai||dv>curEv().selesai))e.date=`Tanggal harus dalam periode ${curEv().nama}.`;
  if(!$('time').value)e.time='Pilih jam kedatangan.';
- ['name','phone','date','time'].forEach(k=>{$('e-'+k).textContent=e[k]||'';$(k).classList.toggle('bad',!!e[k])});
+ if(LIVE&&!e.date&&!e.time&&sel.length!==need())e.pick=type()==='reg'?`Pilih ${need()} meja terlebih dahulu.`:'Ruangan tidak tersedia di jam ini. Pilih jam lain.';
+ if(!$('agree').checked)e.agree='Mohon centang persetujuan ketentuan reservasi.';
+ ['name','phone','date','time','pick','agree'].forEach(k=>{$('e-'+k).textContent=e[k]||'';const el=$(k);if(el)el.classList.toggle('bad',!!e[k])});
  const first=Object.keys(e)[0];
- if(first)$(first).focus();
+ if(first){const el=$(first)||$(first+'-wrap');el.scrollIntoView({block:'center'});if(el.focus)el.focus()}
  return {ok:!first,name,phone:p};
 }
-function show(id){['form','summary','success'].forEach(x=>$(x).classList.toggle('hide',x!==id));$('reservasi').scrollIntoView()}
+function show(id){['form','summary','held','success'].forEach(x=>$(x).classList.toggle('hide',x!==id));$('reservasi').scrollIntoView()}
+function showSection(on){$('tabs').classList.toggle('hide',!on);$('evbox').classList.toggle('hide',!on)}
+function rowsDl(dl,rows){dl.textContent='';rows.forEach(r=>{dl.appendChild(mk('dt',null,r[0]));dl.appendChild(mk('dd',null,String(r[1])))})}
 
-$('minus').onclick=()=>{guests--;syncGuests()};
-$('plus').onclick=()=>{guests++;syncGuests()};
-document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=syncGuests);
-$('date').onchange=slots;
+$('minus').onclick=()=>{guests--;refreshAfterChange()};
+$('plus').onclick=()=>{guests++;refreshAfterChange()};
+document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=()=>{sel=[];refreshAfterChange()});
+$('date').onchange=()=>{sel=[];onDate()};
+$('time').onchange=renderPick;
 
 $('form').addEventListener('submit',ev=>{
  ev.preventDefault();
  const v=validate();if(!v.ok)return;
- const [h,m]=$('time').value.split(':').map(Number);
- data={name:v.name,phone:v.phone,
-  date:parse($('date').value).toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),
-  time:$('time').value,end:`${pad(h+3)}:${pad(m)}`,type:TYPES[type()].label,guests,
-  tables:type()==='reg'?Math.ceil(guests/5):1,dp:calcDp(),note:$('note').value.trim()};
- const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
- const rows=[['Nama',data.name],['WhatsApp','+'+data.phone],['Seating',data.type+(type()==='reg'?` (${data.tables} table)`:'')],
-  ['Tanggal',data.date],['Jam',`${data.time} – ${data.end} (max 3 jam)`],['Tamu',data.guests+' pax'],
-  ['Total DP',rp(data.dp)+' (NO REFUND)'],['Catatan',data.note||'-']];
- $('sumlist').innerHTML=rows.map(r=>`<dt>${r[0]}</dt><dd>${esc(String(r[1]))}</dd>`).join('');
+ const [h,m]=$('time').value.split(':').map(Number),e=curEv();
+ data={name:v.name,phone:v.phone,dateIso:$('date').value,date:fmtDate($('date').value),
+  time:$('time').value,end:`${pad(h+3)}:${pad(m)}`,typeKey:type(),type:TYPES[type()].label,guests,
+  tables:need(),meja:[...sel],dp:calcDp(),note:$('note').value.trim(),event:e?e.nama:'Hari Biasa'};
+ const rows=[['Reservasi',data.event],['Nama',data.name],['WhatsApp','+'+data.phone],
+  ['Seating',data.type+(data.typeKey==='reg'?` (${data.tables} meja)`:'')]];
+ if(LIVE)rows.push(['Meja',data.meja.join(', ')]);
+ rows.push(['Tanggal',data.date],['Jam',`${data.time} – ${data.end} (max 3 jam)`],['Tamu',data.guests+' pax'],
+  ['Total DP',rp(data.dp)+' (NO REFUND)'+(e&&data.typeKey!=='reg'?' · minimum charge':'')],['Catatan',data.note||'-']);
+ rowsDl($('sumlist'),rows);
+ $('send-err').classList.add('hide');
+ $('send').disabled=false;
+ $('send').textContent=LIVE?'Amankan Meja (ditahan 30 menit)':'Konfirmasi & Kirim via WhatsApp';
+ $('sum-note').textContent=LIVE
+  ?'Setelah meja diamankan, Anda punya 30 menit untuk membayar DP. Lewat 30 menit, meja dilepas untuk tamu lain.'
+  :'Tim kami akan membalas via WhatsApp untuk konfirmasi jadwal & info pembayaran DP. DP bersifat NO REFUND.';
  show('summary');
 });
 $('edit').onclick=()=>show('form');
-$('send').onclick=()=>{
- const code='RSV-'+Math.floor(1000+Math.random()*9000);
- const msg=['Halo Copas Suburban Dining, saya ingin reservasi:','',`Kode: ${code}`,`Nama: ${data.name}`,`WhatsApp: +${data.phone}`,
-  `Seating: ${data.type}${type()==='reg'?' ('+data.tables+' table)':''}`,`Tanggal: ${data.date}`,`Jam: ${data.time} - ${data.end} (max 3 jam)`,
-  `Jumlah tamu: ${data.guests} pax`,`Total DP: ${rp(data.dp)} (NO REFUND)`,`Catatan: ${data.note||'-'}`,'','Mohon konfirmasi ketersediaan & info pembayaran DP. Terima kasih!'].join('\n');
- waUrl=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
- $('code').textContent=code;$('walink').href=waUrl;
- window.open(waUrl,'_blank');
- show('success');
-};
-$('again').onclick=()=>{
- $('form').reset();guests=2;
- ['name','phone','date','time'].forEach(k=>{$('e-'+k).textContent='';$(k).classList.remove('bad')});
- slots();syncGuests();show('form');
-};
 
-const tm=new Date();tm.setDate(tm.getDate()+1);
-$('date').min=iso(tm);
-$('yr').textContent=new Date().getFullYear();
-status();setInterval(status,60000);syncGuests();
-
-/* ===== Week 4 · Level 1: ulasan dinamis dari Supabase ===== */
-// Project URL dan PUBLISHABLE key boleh ada di web (memang publik), karena akses dibatasi RLS:
-// hanya bisa membaca review dengan tampilkan = true. JANGAN pernah taruh Secret key / service_role di sini.
-const SUPABASE_URL='https://flptgumyuzbvergqbeny.supabase.co';      // contoh: https://abcdxyz.supabase.co
-const SUPABASE_ANON_KEY='sb_publishable_YIjR6BfTVaAXrOz-2Wnvqw_4sv0K3U6'; // Project Settings → API Keys → Publishable key (sb_publishable_...)
-
-async function sb(path){
- const r=await fetch(SUPABASE_URL+'/rest/v1/'+path,{headers:{apikey:SUPABASE_ANON_KEY}});
- if(!r.ok)throw new Error('Supabase '+r.status);
- return r.json();
+function waReservasiMsg(code){
+ return ['Halo Copas Suburban Dining, saya ingin reservasi:','',`Kode: ${code}`,`Reservasi: ${data.event}`,`Nama: ${data.name}`,`WhatsApp: +${data.phone}`,
+  `Seating: ${data.type}${data.typeKey==='reg'?' ('+data.tables+' meja)':''}`,`Tanggal: ${data.date}`,`Jam: ${data.time} - ${data.end} (max 3 jam)`,
+  `Jumlah tamu: ${data.guests} pax`,`Total DP: ${rp(data.dp)} (NO REFUND)`,`Catatan: ${data.note||'-'}`,'','Saya sudah membaca dan menyetujui ketentuan reservasi. Mohon konfirmasi ketersediaan & info pembayaran DP. Terima kasih!'].join('\n');
 }
-function mk(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+$('send').onclick=async()=>{
+ if(!LIVE){
+  const code='RSV-'+Math.floor(1000+Math.random()*9000),url=waLink(waReservasiMsg(code));
+  $('code').textContent=code;$('walink').href=url;window.open(url,'_blank');show('success');return;
+ }
+ const btn=$('send');btn.disabled=true;btn.textContent='Mengamankan meja…';
+ try{
+  const r=await rpc('rsv_hold',{p_nama:data.name,p_no_wa:data.phone,p_tanggal:data.dateIso,p_jam:data.time,p_pax:data.guests,p_meja:data.meja,p_catatan:data.note||null});
+  showHeld(r);
+ }catch(e){
+  const msg=errText(e);
+  if(e.message==='SLOT_PENUH'){
+   await loadAvail(data.dateIso,true);sel=[];slotOptions(data.dateIso,$('time'),avail[data.dateIso],type(),need());renderPick();
+   $('e-pick').textContent=msg;show('form');$('pick-wrap').scrollIntoView({block:'center'});return;
+  }
+  const n=$('send-err');n.textContent=msg;n.classList.remove('hide');btn.disabled=false;btn.textContent='Coba Lagi';
+ }
+};
+function showHeld(r){
+ avail={};
+ $('h-code').textContent=r.kode;
+ rowsDl($('h-list'),[['Reservasi',data.event],['Tanggal',data.date],['Jam',`${data.time} – ${data.end}`],['Meja',(r.meja||data.meja).join(', ')],['Tamu',data.guests+' pax'],['Total DP',rp(r.dp)]]);
+ const msg=['Halo Tim Copas, saya ingin membayar DP reservasi:','',`Kode booking: ${r.kode}`,`Nama: ${data.name}`,`Reservasi: ${data.event}`,`Tanggal: ${data.date}`,`Jam: ${data.time} - ${data.end}`,`Meja: ${(r.meja||data.meja).join(', ')}`,`Total DP: ${rp(r.dp)}`,'','Mohon info pembayaran DP. Terima kasih!'].join('\n');
+ const pay=$('h-pay');pay.href=waLink(msg);pay.classList.remove('hide');
+ const until=new Date(r.hold_sampai).getTime();
+ clearInterval(holdTimer);
+ const tick=()=>{
+  const left=Math.max(0,Math.round((until-Date.now())/1000)),t=$('h-timer');t.textContent='';
+  if(left>0){t.appendChild(document.createTextNode('Selesaikan DP dalam '));t.appendChild(mk('b',null,`${pad(Math.floor(left/60))}:${pad(left%60)}`))}
+  else{t.textContent='Waktu pembayaran habis. Meja sudah dilepas untuk tamu lain. Jika sudah transfer, segera hubungi kami via WhatsApp.';pay.classList.add('hide');clearInterval(holdTimer)}
+ };
+ tick();holdTimer=setInterval(tick,1000);
+ show('held');
+}
+function resetForm(){
+ clearInterval(holdTimer);
+ $('form').reset();guests=2;sel=[];
+ ['name','phone','date','time','pick','agree'].forEach(k=>{$('e-'+k).textContent='';const el=$(k);if(el)el.classList.remove('bad')});
+ setTab(tab,true);show('form');
+}
+$('again').onclick=resetForm;
+$('h-again').onclick=resetForm;
 
+/* ================= Cek / Ubah Reservasi ================= */
+const ST={HOLD:['Menunggu pembayaran DP','wait'],LUNAS:['DP diterima','ok'],TERKONFIRMASI:['Terkonfirmasi','ok'],DATANG:['Sudah datang','ok'],NO_SHOW:['Tidak hadir','no'],BATAL:['Dibatalkan','no'],KEDALUWARSA:['Kedaluwarsa · DP tidak dibayar dalam 30 menit','no']};
+let cek=null;
+function cMsg(text,kind){const n=$('c-msg');n.textContent=text;n.className='notice '+(kind||'');n.classList.toggle('hide',!text)}
+function renderCek(r){
+ cek=r;const card=$('c-card');card.textContent='';
+ const ev=EVENTS.find(e=>e.kode===r.event);
+ const top=mk('div');top.style.cssText='display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px';
+ top.appendChild(mk('h3',null,r.kode));
+ const s=ST[r.status]||[r.status,''];top.appendChild(mk('span','st '+s[1],s[0]));card.appendChild(top);
+ const dl=mk('dl');dl.className='';const w=mk('div','sum');w.appendChild(dl);card.appendChild(w);
+ rowsDl(dl,[['Nama',r.nama],['Reservasi',ev?ev.nama:(r.event?r.event:'Hari Biasa')],['Tanggal',fmtDate(r.tanggal)],['Jam',`${r.jam} – ${r.selesai}`],['Meja',(r.meja||[]).join(', ')],['Tamu',r.pax+' pax'],['Total DP',rp(r.dp)],['Reschedule',`${r.jumlah_reschedule} dari ${r.maks_reschedule}x`]]);
+ if(r.status==='HOLD'&&r.hold_sampai){
+  const left=Math.max(0,Math.round((new Date(r.hold_sampai).getTime()-Date.now())/60000));
+  card.appendChild(mk('p','hint',`Meja ditahan sampai sekitar ${left} menit lagi. Segera selesaikan DP via WhatsApp.`));
+ }
+ // reschedule
+ const can=['LUNAS','TERKONFIRMASI'].includes(r.status)&&r.jumlah_reschedule<r.maks_reschedule&&iso(today0())<r.tanggal;
+ $('rs').classList.toggle('hide',!can);
+ if(can){
+  const d=$('rs-date'),tm=tomorrowIso();
+  if(ev){d.min=ev.mulai>tm?ev.mulai:tm;d.max=ev.selesai}else{d.min=tm;d.max=iso(addDays(today0(),180))}
+  d.value='';slotOptions('',$('rs-time'));$('e-rs').textContent='';
+  $('rs-info').textContent=`Sisa reschedule: ${r.maks_reschedule-r.jumlah_reschedule}x. Jadwal baru${ev?' harus dalam periode '+ev.nama+',':''} hanya bisa diproses jika slot masih tersedia. DP ikut pindah ke jadwal baru.`;
+ }else if(['LUNAS','TERKONFIRMASI'].includes(r.status)){
+  card.appendChild(mk('p','hint','Reschedule online tidak tersedia untuk reservasi ini (batas 2x atau sudah lewat H-1). Silakan hubungi kami via WhatsApp.'));
+ }
+}
+$('cek-form').addEventListener('submit',async ev=>{
+ ev.preventDefault();
+ const kode=$('c-kode').value.trim().toUpperCase(),p=normPhone($('c-phone').value);
+ $('e-c-kode').textContent=kode.length<6?'Masukkan kode booking.':'';
+ $('e-c-phone').textContent=p?'':'Nomor WhatsApp belum valid.';
+ if(kode.length<6||!p)return;
+ $('cek-out').classList.remove('hide');
+ if(!LIVE){
+  cMsg('Cek reservasi online sedang tidak tersedia. Kami bantu cek via WhatsApp.','');
+  $('c-card').textContent='';$('rs').classList.add('hide');
+  const a=mk('a','btn wa','Cek via WhatsApp');a.href=waLink(`Halo Tim Copas, saya ingin cek / ubah reservasi.\n\nKode booking: ${kode}\nNomor WA: +${p}`);a.target='_blank';a.rel='noopener';
+  $('c-card').appendChild(a);return;
+ }
+ const b=$('c-btn');b.disabled=true;b.textContent='Mencari…';
+ try{cMsg('');renderCek(await rpc('rsv_cek',{p_kode:kode,p_no_wa:p}));cek.phone=p}
+ catch(e){$('c-card').textContent='';$('rs').classList.add('hide');cMsg(errText(e),'bad')}
+ finally{b.disabled=false;b.textContent='Cek Reservasi'}
+});
+$('rs-date').onchange=async()=>{
+ const v=$('rs-date').value;slotOptions(v,$('rs-time'));
+ if(!v||!cek)return;
+ const av=await loadAvail(v,true);
+ if(v===$('rs-date').value&&av&&v!==cek.tanggal)slotOptions(v,$('rs-time'),av,cek.tipe,(cek.meja||[]).length||1);
+};
+$('rs-btn').onclick=async()=>{
+ const v=$('rs-date').value,t=$('rs-time').value;
+ if(!v||!t){$('e-rs').textContent='Pilih tanggal dan jam baru.';return}
+ $('e-rs').textContent='';
+ const b=$('rs-btn');b.disabled=true;b.textContent='Memproses…';
+ try{
+  const r=await rpc('rsv_reschedule',{p_kode:cek.kode,p_no_wa:cek.phone,p_tanggal:v,p_jam:t});
+  const ph=cek.phone;renderCek(r);cek.phone=ph;avail={};
+  cMsg(`Reschedule berhasil. Jadwal baru: ${fmtDate(r.tanggal)}, ${r.jam} – ${r.selesai}, meja ${(r.meja||[]).join(', ')}. Mohon datang tepat waktu.`,'good');
+  $('cek').scrollIntoView();
+ }catch(e){$('e-rs').textContent=errText(e)}
+ finally{b.disabled=false;b.textContent='Reschedule Sekarang'}
+};
+
+/* ================= Mulai ================= */
+async function init(){
+ $('yr').textContent=new Date().getFullYear();
+ status();setInterval(status,60000);
+ if(SB_READY){
+  try{
+   const ev=await rpc('rsv_event');
+   if(Array.isArray(ev)){EVENTS=ev;LIVE=true}
+  }catch(e){console.warn('Reservasi online belum aktif, memakai WhatsApp:',e.message)}
+ }
+ renderTabs();
+ setTab(EVENTS[0]?EVENTS[0].kode:'biasa',false);
+ if(!LIVE)$('rsv-sub').textContent='Pilih jadwal, lalu kirim ke tim kami via WhatsApp untuk konfirmasi meja & DP. Minimal H-1.';
+}
+init();
+
+/* ===== Ulasan dinamis dari Supabase (Week 4) ===== */
 async function loadReviews(){
- if(SUPABASE_URL.startsWith('GANTI')||SUPABASE_ANON_KEY.startsWith('GANTI'))return; // belum dikonfigurasi: section tetap tersembunyi
+ if(!SB_READY)return;
  try{
   const [rows,stats]=await Promise.all([
    sb('reviews?select=review_id,reviewer,rating,teks,tanggal_review,kategori&tampilkan=eq.true&order=rating.desc,tanggal_review.desc&limit=6'),
@@ -371,7 +769,7 @@ async function loadReviews(){
    el.appendChild(document.createTextNode(' dari '+s.total_review+' ulasan Google'));
   }
   $('ulasan').classList.remove('hide');$('nav-ulasan').classList.remove('hide');
- }catch(e){console.warn('Ulasan tidak dimuat:',e.message)} // gagal: halaman tetap normal tanpa section ulasan
+ }catch(e){console.warn('Ulasan tidak dimuat:',e.message)}
 }
 loadReviews();
 </script>
