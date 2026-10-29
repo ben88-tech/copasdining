@@ -298,7 +298,8 @@ footer a{color:#f6e3c3}
     <ul class="rules" style="margin-top:8px">
      <li>Reservasi minimal <b>H-1</b>, pemakaian meja maksimal <b>3 jam</b>.</li>
      <li>Hari biasa: meja reguler (5 pax) DP <b>Rp 250.000</b>/meja, VIP Room DP <b>Rp 500.000</b>.</li>
-     <li>Periode event (Natal &amp; Ramadhan): DP <b>Rp 500.000</b> untuk meja reguler maupun VIP. VIP Room berlaku <b>minimum charge</b>.</li>
+     <li>Periode event (Natal &amp; Ramadhan): DP <b>Rp 500.000</b> untuk meja reguler maupun VIP.</li>
+     <li>Minimum charge VIP Room 1 <b>Rp 1.200.000</b> &amp; VIP Room 2 <b>Rp 2.000.000</b> (belum termasuk tax &amp; service).</li>
      <li>Meja ditahan <b>30 menit</b> untuk pembayaran DP. Lewat dari itu, meja dilepas untuk tamu lain.</li>
      <li>DP berlaku sistem <b>NO REFUND</b>.</li>
      <li>Reschedule maksimal <b>2x</b> dalam periode event, paling lambat <b>H-1</b>, selama slot tersedia. DP ikut pindah ke jadwal baru.</li>
@@ -313,7 +314,7 @@ footer a{color:#f6e3c3}
 <section id="faq" class="alt-bg">
  <div class="wrap" style="max-width:720px">
   <div class="title"><h2>FAQ</h2></div>
-  <details><summary>Berapa DP yang harus dibayar?</summary><p>Hari biasa: meja reguler Rp 250.000 per meja, VIP room Rp 500.000. Selama periode Natal dan Ramadhan: Rp 500.000 untuk meja reguler maupun VIP. VIP room berlaku minimum charge.</p></details>
+  <details><summary>Berapa DP yang harus dibayar?</summary><p>Hari biasa: meja reguler Rp 250.000 per meja, VIP room Rp 500.000. Selama periode Natal dan Ramadhan: Rp 500.000 untuk meja reguler maupun VIP. VIP Room 1 berlaku minimum charge Rp 1.200.000 dan VIP Room 2 Rp 2.000.000 (belum termasuk tax &amp; service).</p></details>
   <details><summary>Apakah DP bisa di-refund?</summary><p>Tidak. Reservasi menggunakan sistem DP dan NO REFUND. Namun DP bisa ikut pindah jika Anda reschedule sesuai ketentuan.</p></details>
   <details><summary>Berapa lama meja ditahan setelah saya memesan?</summary><p>30 menit. Silakan selesaikan pembayaran DP dalam waktu tersebut. Jika belum dibayar, meja otomatis dilepas untuk tamu lain.</p></details>
   <details><summary>Bisakah saya mengubah jadwal (reschedule)?</summary><p>Bisa, maksimal 2x dalam periode event yang sama, paling lambat H-1, dan selama slot masih tersedia. Gunakan menu Cek / Ubah Reservasi dengan kode booking Anda.</p></details>
@@ -349,6 +350,9 @@ const EVENTS_DEFAULT=[
 ];
 const EV_ICON={natal:'🎄',ramadhan:'🌙'};
 const DP_BIASA={reg:250000,vip:500000};
+// Minimum charge VIP Room (belum termasuk tax & service), berlaku setiap hari
+const MC={vip1:1200000,vip2:2000000};
+const mcText=t=>`minimum charge ${rp(MC[t])} (exc. tax & service)`;
 
 /* ================= Utilitas ================= */
 const $=id=>document.getElementById(id);
@@ -439,7 +443,7 @@ function setTab(k,user){
   box.appendChild(mk('h3',null,`${EV_ICON[ev.kode]||'⭐'} Reservasi ${ev.nama}`));
   box.appendChild(mk('p',null,`${fmtDate(ev.mulai)} – ${fmtDate(ev.selesai)}`));
   if(ev.catatan)box.appendChild(mk('p',null,ev.catatan));
-  [`DP ${rp(ev.dp_reg)} per meja`,'VIP: minimum charge','Hold 30 menit','Reschedule maks '+(ev.maks_reschedule||2)+'x'].forEach(t=>box.appendChild(mk('span','pill',t)));
+  [`DP ${rp(ev.dp_reg)} per meja`,'VIP min. charge 1,2 jt / 2 jt','Hold 30 menit','Reschedule maks '+(ev.maks_reschedule||2)+'x'].forEach(t=>box.appendChild(mk('span','pill',t)));
  }else{
   box.appendChild(mk('h3',null,'📅 Reservasi Hari Biasa'));
   box.appendChild(mk('p',null,'Meja reguler DP Rp 250.000/meja · VIP Room DP Rp 500.000. Pemakaian maksimal 3 jam.'));
@@ -454,13 +458,14 @@ function setTab(k,user){
 function labels(){
  const ev=curEv();
  $('lbl-reg').textContent=`Table Reguler · 5 pax/table · DP ${rp(dpPer('reg',ev))}/table`;
- $('lbl-vip1').textContent=`VIP Room 1 · 6–10 pax · DP ${rp(dpPer('vip1',ev))}${ev?' · minimum charge':''}`;
- $('lbl-vip2').textContent=`VIP Room 2 · 10–14 pax · DP ${rp(dpPer('vip2',ev))}${ev?' · minimum charge':''}`;
+ $('lbl-vip1').textContent=`VIP Room 1 · 6–10 pax · DP ${rp(dpPer('vip1',ev))} · ${mcText('vip1')}`;
+ $('lbl-vip2').textContent=`VIP Room 2 · 10–14 pax · DP ${rp(dpPer('vip2',ev))} · ${mcText('vip2')}`;
 }
 function rulesFor(ev){
  return [
   'Reservasi minimal H-1. Pemakaian meja maksimal 3 jam.',
-  ev?`DP ${rp(ev.dp_reg)} per meja reguler maupun VIP. VIP Room berlaku minimum charge.`:'DP Rp 250.000 per meja reguler, Rp 500.000 untuk VIP Room.',
+  ev?`DP ${rp(ev.dp_reg)} per meja reguler maupun VIP.`:'DP Rp 250.000 per meja reguler, Rp 500.000 untuk VIP Room.',
+  `VIP Room 1 minimum charge ${rp(MC.vip1)}, VIP Room 2 minimum charge ${rp(MC.vip2)} (belum termasuk tax & service).`,
   'Meja ditahan 30 menit untuk pembayaran DP. Lewat 30 menit belum dibayar, meja dilepas untuk tamu lain.',
   'DP tidak bisa di-refund (NO REFUND).',
   ev?`Reschedule maksimal ${ev.maks_reschedule||2}x selama periode ${ev.nama}, paling lambat H-1, selama slot masih tersedia. DP ikut pindah ke jadwal baru.`:'Reschedule maksimal 2x, paling lambat H-1, selama slot masih tersedia. DP ikut pindah ke jadwal baru.',
@@ -555,7 +560,7 @@ function syncGuests(){
  $('minus').disabled=guests<=t.min;$('plus').disabled=guests>=t.max;
  $('hint').textContent=type()==='reg'
   ?`${need()} meja · DP ${rp(calcDp())} (max 3 jam)`
-  :`Kapasitas ${t.min}–${t.max} pax · DP ${rp(calcDp())} (max 3 jam)${curEv()?' · minimum charge':''}`;
+  :`Kapasitas ${t.min}–${t.max} pax · DP ${rp(calcDp())} (max 3 jam)${type()!=='reg'?' · '+mcText(type()):''}`;
 }
 function refreshAfterChange(){syncGuests();const v=$('date').value;if(v)slotOptions(v,$('time'),avail[v],type(),need());renderPick()}
 function validate(){
@@ -584,6 +589,10 @@ $('minus').onclick=()=>{guests--;refreshAfterChange()};
 $('plus').onclick=()=>{guests++;refreshAfterChange()};
 document.querySelectorAll('input[name=type]').forEach(r=>r.onchange=()=>{sel=[];refreshAfterChange()});
 $('date').onchange=()=>{sel=[];onDate()};
+// Pastikan hari yang sudah lewat (termasuk hari ini, karena minimal H-1) tidak bisa dipilih,
+// walaupun halaman dibiarkan terbuka sampai lewat tengah malam.
+function refreshMin(el){const tm=tomorrowIso();if(!el.min||el.min<tm)el.min=tm;if(el.value&&el.value<tm)el.value=''}
+['date','rs-date'].forEach(id=>['focus','click'].forEach(ev=>$(id).addEventListener(ev,()=>refreshMin($(id)))));
 $('time').onchange=renderPick;
 
 $('form').addEventListener('submit',ev=>{
@@ -597,7 +606,9 @@ $('form').addEventListener('submit',ev=>{
   ['Seating',data.type+(data.typeKey==='reg'?` (${data.tables} meja)`:'')]];
  if(LIVE)rows.push(['Meja',data.meja.join(', ')]);
  rows.push(['Tanggal',data.date],['Jam',`${data.time} – ${data.end} (max 3 jam)`],['Tamu',data.guests+' pax'],
-  ['Total DP',rp(data.dp)+' (NO REFUND)'+(e&&data.typeKey!=='reg'?' · minimum charge':'')],['Catatan',data.note||'-']);
+  ['Total DP',rp(data.dp)+' (NO REFUND)']);
+ if(data.typeKey!=='reg')rows.push(['Min. charge',rp(MC[data.typeKey])+' (exc. tax & service)']);
+ rows.push(['Catatan',data.note||'-']);
  rowsDl($('sumlist'),rows);
  $('send-err').classList.add('hide');
  $('send').disabled=false;
@@ -612,7 +623,7 @@ $('edit').onclick=()=>show('form');
 function waReservasiMsg(code){
  return ['Halo Copas Suburban Dining, saya ingin reservasi:','',`Kode: ${code}`,`Reservasi: ${data.event}`,`Nama: ${data.name}`,`WhatsApp: +${data.phone}`,
   `Seating: ${data.type}${data.typeKey==='reg'?' ('+data.tables+' meja)':''}`,`Tanggal: ${data.date}`,`Jam: ${data.time} - ${data.end} (max 3 jam)`,
-  `Jumlah tamu: ${data.guests} pax`,`Total DP: ${rp(data.dp)} (NO REFUND)`,`Catatan: ${data.note||'-'}`,'','Saya sudah membaca dan menyetujui ketentuan reservasi. Mohon konfirmasi ketersediaan & info pembayaran DP. Terima kasih!'].join('\n');
+  `Jumlah tamu: ${data.guests} pax`,`Total DP: ${rp(data.dp)} (NO REFUND)`+(data.typeKey!=='reg'?`\nMinimum charge: ${rp(MC[data.typeKey])} (exc. tax & service)`:''),`Catatan: ${data.note||'-'}`,'','Saya sudah membaca dan menyetujui ketentuan reservasi. Mohon konfirmasi ketersediaan & info pembayaran DP. Terima kasih!'].join('\n');
 }
 $('send').onclick=async()=>{
  if(!LIVE){
@@ -635,7 +646,7 @@ $('send').onclick=async()=>{
 function showHeld(r){
  avail={};
  $('h-code').textContent=r.kode;
- rowsDl($('h-list'),[['Reservasi',data.event],['Tanggal',data.date],['Jam',`${data.time} – ${data.end}`],['Meja',(r.meja||data.meja).join(', ')],['Tamu',data.guests+' pax'],['Total DP',rp(r.dp)]]);
+ rowsDl($('h-list'),[['Reservasi',data.event],['Tanggal',data.date],['Jam',`${data.time} – ${data.end}`],['Meja',(r.meja||data.meja).join(', ')],['Tamu',data.guests+' pax'],['Total DP',rp(r.dp)]].concat(data.typeKey!=='reg'?[['Min. charge',rp(MC[data.typeKey])+' (exc. tax & service)']]:[]));
  const msg=['Halo Tim Copas, saya ingin membayar DP reservasi:','',`Kode booking: ${r.kode}`,`Nama: ${data.name}`,`Reservasi: ${data.event}`,`Tanggal: ${data.date}`,`Jam: ${data.time} - ${data.end}`,`Meja: ${(r.meja||data.meja).join(', ')}`,`Total DP: ${rp(r.dp)}`,'','Mohon info pembayaran DP. Terima kasih!'].join('\n');
  const pay=$('h-pay');pay.href=waLink(msg);pay.classList.remove('hide');
  const until=new Date(r.hold_sampai).getTime();

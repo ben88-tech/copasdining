@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blueprint · Copas Event Booking System</title>
+<!-- Halaman khusus penilaian bootcamp: tidak ditautkan dari menu & tidak diindeks Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6ede0;--card:#fffaf1;--brown:#3e2616;--text:#4a3426;--accent:#a8481f;--gold:#c9973f;--line:#e3d3bd;--soft:#fbeee3;--okc:#2e6b3a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Lato,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;color:var(--brown);line-height:1.25}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,#3e2616,#5e3419);color:#f6e3c3;padding:56px 0 48px}
+header h1{color:#fff;font-size:clamp(1.9rem,5.5vw,3rem);margin:10px 0 8px}
+header p{max-width:680px;color:#f1dcc0}
+.kick{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{color:#f6e3c3;text-decoration:none;border:1px solid #ffffff40;border-radius:999px;padding:6px 14px;font-size:.88rem;min-height:36px;display:inline-flex;align-items:center}
+.toc a:hover{background:#ffffff1a}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+section:nth-of-type(even){background:#efe1cc}
+.num{font-family:"Playfair Display",Georgia,serif;font-size:2.4rem;color:var(--accent);line-height:1}
+.sh{display:flex;gap:16px;align-items:baseline;margin-bottom:18px}
+.sh h2{font-size:1.7rem}
+.lead{font-size:1.08rem;max-width:760px;margin-bottom:18px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{font-size:1.05rem;margin-bottom:6px}
+.card p,.card li{font-size:.93rem}
+.card ul{padding-left:18px}
+.hl{background:var(--brown);color:#f6e3c3;border-radius:14px;padding:18px 20px;margin-top:16px}
+.hl b{color:#fff}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:.92rem}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--brown)}
+.tw{overflow-x:auto;border-radius:12px;border:1px solid var(--line)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 4px}
+.node{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:700;font-size:.9rem}
+.node.m{background:var(--accent);border-color:var(--accent);color:#fff}
+.node.h{background:#e8f3ea;border-color:#bfdcc5;color:var(--okc)}
+.arr{color:var(--accent);font-weight:700}
+.sup{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;align-items:center;margin-top:10px}
+.branch{display:grid;gap:8px}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.78rem;font-weight:700;background:var(--soft);border:1px solid var(--line);margin-right:6px}
+.pill.ai{background:#e8f3ea;border-color:#bfdcc5;color:var(--okc)}
+.pill.st{background:#fff3d6;border-color:#f0dca8;color:#8a5a00}
+.two{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+footer{padding:36px 0 56px;text-align:center;font-size:.9rem}
+footer a{color:var(--accent);font-weight:700}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin-top:10px}
+@media (max-width:600px){.sup{grid-template-columns:1fr}.sup .arr{transform:rotate(90deg);justify-self:start}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap">
+  <span class="kick">AI Builder Bootcamp · Week 5 &amp; 6 · Agent Blueprint</span>
+  <h1>Copas Event Booking System</h1>
+  <p>Tim agen dengan memori untuk menangani reservasi Copas Suburban Dining saat event Natal (Desember 2026) dan Ramadhan (Februari 2027), dari website dan WhatsApp, tanpa double booking.</p>
+  <nav class="toc" aria-label="Isi blueprint">
+   <a href="#nama">01 Nama</a><a href="#masalah">02 Masalah</a><a href="#tim">03 Sendiri / Tim</a><a href="#pola">04 Anggota &amp; Pola</a><a href="#memori">05 Memori</a><a href="#tahap">Tahapan &amp; Tools</a>
+  </nav>
+ </div>
+</header>
+
+<section id="nama">
+ <div class="wrap">
+  <div class="sh"><span class="num">01</span><h2>Nama Sistem / Solusi</h2></div>
+  <p class="lead"><b>Copas Event Booking System.</b> Bagi pelanggan cukup tampil sebagai "Reservasi Event Copas" di website dan WhatsApp, dilayani atas nama <b>Tim Copas</b>.</p>
+  <div class="grid">
+   <div class="card"><h3>W1 · Otak</h3><p>Menggali akar masalah operasional Copas.</p></div>
+   <div class="card"><h3>W3 · Wajah</h3><p>Website Copas online di Vercel.</p></div>
+   <div class="card"><h3>W4 · Saraf</h3><p>Data masuk otomatis ke Supabase lewat n8n.</p></div>
+   <div class="card" style="border-color:var(--accent)"><h3>W5 · Tim + Ingatan</h3><p>Tim agen spesialis untuk reservasi event, dengan memori jangka panjang.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="masalah">
+ <div class="wrap">
+  <div class="sh"><span class="num">02</span><h2>Masalah yang Ditangani</h2></div>
+  <div class="tw"><table>
+   <tr><th>Masalah</th><th>Dampak</th></tr>
+   <tr><td>Saat event, chat reservasi bisa <b>puluhan sampai ratusan per hari</b>, dibalas kasir sendirian</td><td>Balasan lambat, calon tamu pindah ke tempat lain</td></tr>
+   <tr><td>Reservasi masuk dari <b>website &amp; WhatsApp</b> tanpa satu sumber data</td><td>Risiko <b>double booking</b>: satu meja di jam yang sama terjual dua kali</td></tr>
+   <tr><td>Reschedule dicatat manual</td><td>Jadwal baru bisa bentrok dengan booking lain</td></tr>
+   <tr><td>DP dicek manual</td><td>Meja tertahan lama padahal tamu belum bayar</td></tr>
+   <tr><td>Pertanyaan yang sama terus berulang (paket, harga, DP, jam)</td><td>Waktu staf habis untuk hal repetitif</td></tr>
+  </table></div>
+  <div class="hl"><b>Akar masalah:</b> tidak ada satu "buku reservasi" pusat yang dibaca bersama oleh semua jalur, dan semua pekerjaan (menjawab, menjadwalkan, menagih, mengingatkan) bertumpu pada satu orang.</div>
+ </div>
+</section>
+
+<section id="tim">
+ <div class="wrap">
+  <div class="sh"><span class="num">03</span><h2>Agen Berjalan Sendiri atau Dalam Tim?</h2></div>
+  <p class="lead"><b>Tim.</b> Satu agen yang mengerjakan semuanya akan kena masalah "Palugada": prompt membengkak, fokus pecah, kualitas turun.</p>
+  <div class="grid">
+   <div class="card"><h3>Pekerjaannya beragam</h3><p>Menjawab info, mengatur jadwal, menagih DP, mengirim reminder.</p></div>
+   <div class="card"><h3>Salah itu mahal</h3><p>DP tidak bisa di-refund. Jadwal bentrok berarti kehilangan uang dan kepercayaan tamu.</p></div>
+   <div class="card"><h3>Volume tinggi</h3><p>Saat event, pekerjaan harus dibagi supaya bisa berjalan paralel.</p></div>
+  </div>
+  <div class="hl"><b>Prinsip kunci: yang menjamin tidak ada bentrok adalah database, bukan AI.</b> Supabase dipasang aturan bahwa satu meja tidak boleh punya dua reservasi aktif di jam yang tumpang tindih. Agen hanya membaca ketersediaan dan mengajukan booking. Kalau dua tamu memilih meja yang sama di detik yang sama, database menolak salah satunya dan agen menawarkan alternatif.</div>
+ </div>
+</section>
+
+<section id="pola">
+ <div class="wrap">
+  <div class="sh"><span class="num">04</span><h2>Anggota Tim &amp; Pola Kerja</h2></div>
+  <p class="lead">Dua pola sekaligus, sesuai jalurnya.</p>
+
+  <div class="two">
+   <div class="card">
+    <h3>Jalur WhatsApp · Pola Supervisor</h3>
+    <p>Pertanyaan tamu beragam, jadi perlu resepsionis yang memilah.</p>
+    <div class="sup">
+     <div class="node m">🧭 Resepsionis<br><small style="font-weight:400">Orchestrator</small></div>
+     <div class="branch">
+      <span class="node">📋 Agen Info Event</span>
+      <span class="node">🗓️ Agen Jadwal</span>
+      <span class="node">💳 Agen Pembayaran</span>
+      <span class="node">🔔 Agen Konfirmasi</span>
+      <span class="node h">👤 Staf Copas</span>
+     </div>
+    </div>
+   </div>
+   <div class="card">
+    <h3>Jalur Website · Pola Sequential (Estafet)</h3>
+    <p>Urutannya selalu sama, jadi cukup estafet.</p>
+    <div class="flow">
+     <span class="node">Pilih event &amp; tanggal</span><span class="arr">→</span>
+     <span class="node">Pilih jam &amp; meja (live)</span><span class="arr">→</span>
+     <span class="node">HOLD 30 menit</span><span class="arr">→</span>
+     <span class="node">Bayar DP</span><span class="arr">→</span>
+     <span class="node m">Kode booking</span>
+    </div>
+   </div>
+  </div>
+
+  <h3 style="margin:24px 0 10px">Tugas tiap agen &amp; handoff</h3>
+  <div class="tw"><table>
+   <tr><th>Agen</th><th>Tugas</th><th>Yang dioper</th><th>Batasan</th></tr>
+   <tr><td><b>🧭 Resepsionis</b></td><td>Membaca chat, memilah maksud: info, booking, reschedule, batal, bayar, komplain</td><td>Maksud chat + data tamu</td><td>Tidak menjawab hal di luar aturan</td></tr>
+   <tr><td><b>📋 Info Event</b></td><td>Menjawab paket, harga, jam, aturan</td><td>Jawaban + tawaran booking</td><td>Hanya dari file aturan &amp; FAQ</td></tr>
+   <tr><td><b>🗓️ Jadwal</b></td><td>Cek meja kosong, HOLD 30 menit, tawarkan alternatif, proses reschedule</td><td>Kode HOLD + meja + jam</td><td>Tidak menjanjikan slot yang belum dicek</td></tr>
+   <tr><td><b>💳 Pembayaran</b></td><td>Link DP, pantau status bayar, lepas HOLD lewat 30 menit</td><td>Status LUNAS / KEDALUWARSA</td><td>Tidak memproses refund</td></tr>
+   <tr><td><b>🔔 Konfirmasi</b></td><td>Kode booking, ringkasan aturan, reminder H-1 &amp; hari-H</td><td>—</td><td>Hanya template yang disetujui</td></tr>
+  </table></div>
+
+  <h3 style="margin:24px 0 10px">Di mana manusia menyetujui (human-in-the-loop)</h3>
+  <div class="tw"><table>
+   <tr><th>Situasi</th><th>Ditangani oleh</th></tr>
+   <tr><td>Info paket, harga, jam, aturan · cek meja · booking reguler · reminder</td><td><span class="pill ai">Agen</span></td></tr>
+   <tr><td>Reschedule dalam batas 2x &amp; slot tersedia</td><td><span class="pill ai">Agen</span></td></tr>
+   <tr><td>Grup &gt; 25 pax · VIP Room (minimum charge)</td><td><span class="pill ai">Agen siapkan draf</span><span class="pill st">Staf setujui</span></td></tr>
+   <tr><td>Komplain · refund · tamu marah · di luar aturan</td><td><span class="pill st">Staf</span></td></tr>
+   <tr><td>Terlambat &gt; 30 menit tanpa konfirmasi</td><td><span class="pill ai">Sistem bebaskan meja</span><span class="pill st">Staf beri ke antrian</span></td></tr>
+   <tr><td>Staf membalas sendiri sebuah chat</td><td>Agen otomatis berhenti di chat itu</td></tr>
+  </table></div>
+ </div>
+</section>
+
+<section id="memori">
+ <div class="wrap">
+  <div class="sh"><span class="num">05</span><h2>Yang Disimpan di Memori</h2></div>
+  <div class="grid">
+   <div class="card">
+    <h3>🗄️ Long-term · aturan-reservasi.md</h3>
+    <p>Setara SOUL.md / CLAUDE.md, selalu dibaca agen. Aturan berubah? Cukup file ini yang diedit.</p>
+    <ul>
+     <li>Minimal H-1, jam kedatangan 08.00–20.30, maks 3 jam per meja</li>
+     <li>DP event Rp 500.000 (reguler &amp; VIP), no refund</li>
+     <li>Minimum charge VIP 1 Rp 1,2 jt · VIP 2 Rp 2 jt (exc. tax &amp; service)</li>
+     <li>HOLD 30 menit · reschedule maks 2x, paling lambat H-1</li>
+     <li>Terlambat 30 menit tanpa konfirmasi → meja ke antrian</li>
+     <li>Gaya bahasa "Tim Copas", sapaan "Kak"</li>
+    </ul>
+   </div>
+   <div class="card"><h3>👤 Profil tamu</h3><ul><li>Nama, nomor WA, riwayat kunjungan</li><li>Preferensi (misalnya suka Lantai 2)</li><li>Momen perayaan</li><li>Jumlah reschedule yang sudah dipakai</li></ul></div>
+   <div class="card"><h3>🧠 Short-term</h3><p>Status percakapan per nomor WA, misalnya "sedang memilih jam · HOLD meja L2-07 sampai 18.42".</p></div>
+   <div class="card"><h3>🔎 Vector database</h3><p>Bank FAQ di Supabase pgvector. "Boleh bawa takjil sendiri?" tetap menemukan FAQ "membawa makanan dari luar" walau kata-katanya beda.</p></div>
+  </div>
+  <h3 style="margin:24px 0 10px">Kapan memori dihapus</h3>
+  <div class="tw"><table>
+   <tr><th>Data</th><th>Dihapus</th></tr>
+   <tr><td>HOLD kedaluwarsa</td><td>Langsung setelah 30 menit</td></tr>
+   <tr><td>Status percakapan</td><td>Setelah reservasi selesai / chat tidak aktif 24 jam</td></tr>
+   <tr><td>Isi chat lengkap</td><td>Dirangkum, detailnya dihapus setelah periode event</td></tr>
+   <tr><td>Profil tamu</td><td>Selama tamu aktif; dihapus bila tamu meminta</td></tr>
+   <tr><td>Aturan &amp; FAQ</td><td>Tidak dihapus, diperbarui saat kebijakan berubah</td></tr>
+  </table></div>
+ </div>
+</section>
+
+<section id="tahap">
+ <div class="wrap">
+  <div class="sh"><span class="num">+</span><h2>Tahapan, Tools &amp; Ukuran Keberhasilan</h2></div>
+  <div class="two">
+   <div class="card"><h3>Tahap 1 · Hemat (Natal &amp; Ramadhan)</h3><ul>
+    <li>Website jadi pusat reservasi: pilih meja live, HOLD 30 menit, kode booking</li>
+    <li>Cek / ubah reservasi mandiri di website</li>
+    <li>WhatsApp Business app biasa + link reservasi</li>
+    <li>Biaya: AI ± Rp 10 per balasan (Claude Haiku 5.5)</li></ul></div>
+   <div class="card"><h3>Tahap 2 · Otomatis penuh</h3><ul>
+    <li>WhatsApp Cloud API + Coexistence: agen membalas, kasir tetap bisa membalas dari HP</li>
+    <li>Payment gateway (Midtrans/Xendit) → status LUNAS otomatis</li>
+    <li>Diputuskan dari data Tahap 1, karena biaya WA ± Rp 357 per pesan</li></ul></div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+   <div class="card"><h3>Tools</h3><p>Vercel · Supabase (+ pgvector) · n8n · Claude API · WhatsApp Business · Midtrans/Xendit</p></div>
+   <div class="card"><h3>Ukuran keberhasilan</h3><ul><li>0 double booking</li><li>90% chat dibalas &lt; 1 menit</li><li>≥ 70% chat selesai tanpa staf</li><li>Rasio HOLD → DP lunas</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <p>Implementasi Tahap 1 sudah berjalan di website Copas: reservasi event dengan pilihan meja live, HOLD 30 menit, serta cek &amp; reschedule mandiri.</p>
+  <a class="btn" href="/#reservasi">Lihat implementasinya</a>
+  <p style="margin-top:18px;opacity:.75">Disusun oleh Ben · AI Builder Bootcamp (AI Creator Labs) · 2026</p>
+ </div>
+</footer>
+</body>
+</html>
